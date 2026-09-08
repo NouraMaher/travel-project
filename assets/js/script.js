@@ -65,8 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-price-usd]').forEach(function (el) {
       var base = parseFloat(el.dataset.priceUsd);
       if (!isNaN(base)) {
-        var converted = Math.round(base * rate);
-        el.textContent = sym + converted.toLocaleString();
+        var converted = Math.round(base * rate * 100) / 100;
+        var display = (converted % 1 === 0) ? converted.toLocaleString() : converted.toFixed(2);
+        el.textContent = sym + display;
       }
     });
   }
@@ -1009,6 +1010,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // so a bare tour-details.html link keeps behaving exactly as before.
     var tourParams = new URLSearchParams(window.location.search);
     var requestedTour = tourParams.get('tour');
+    if (requestedTour === 'paris-eiffel' || requestedTour === 'paris-enquiry') {
+    requestedTour = 'paris';}
+
+    var tourId = (requestedTour && tourData[requestedTour])
+    ? requestedTour
+    : 'argentina';
+
+    var tour = tourData[tourId];
     var tourId = (requestedTour && tourData[requestedTour]) ? requestedTour : 'argentina';
     var tour = tourData[tourId];
 
@@ -1081,13 +1090,25 @@ document.addEventListener('DOMContentLoaded', function () {
     if (durationBadge) durationBadge.innerHTML = '<i class="bi bi-clock"></i> ' + tour.duration;
 
     var bookingPrice = document.getElementById('tourBookingPrice');
-    if (bookingPrice) bookingPrice.textContent = tour.price;
+    if (bookingPrice) {
+      var priceNum = parseFloat(String(tour.price).replace(/[^0-9.]/g, ''));
+      if (!isNaN(priceNum)) bookingPrice.setAttribute('data-price-usd', priceNum);
+      bookingPrice.textContent = tour.price;
+    }
 
     var bookingPriceOld = document.getElementById('tourBookingPriceOld');
     if (bookingPriceOld) {
-      if (tour.oldPrice) { bookingPriceOld.textContent = tour.oldPrice; bookingPriceOld.style.display = ''; }
+      if (tour.oldPrice) {
+        var oldPriceNum = parseFloat(String(tour.oldPrice).replace(/[^0-9.]/g, ''));
+        if (!isNaN(oldPriceNum)) bookingPriceOld.setAttribute('data-price-usd', oldPriceNum);
+        bookingPriceOld.textContent = tour.oldPrice;
+        bookingPriceOld.style.display = '';
+      }
       else { bookingPriceOld.style.display = 'none'; }
     }
+
+    // Re-apply the currently selected currency now that dynamic prices are in the DOM
+    applyCurrency(savedCurrency);
 
     // Detail description
     var detailText = document.getElementById('tourDetailText');
