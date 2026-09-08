@@ -5,59 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Travel Tour – Western Europe tours. Explore the charm of ancient cities, museums, and landscapes." />
   <title>Travel Tour – Western Europe</title>
-  <link rel="stylesheet" href="../assets/CSS/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="../assets/CSS/Style.css" />
+  <link rel="stylesheet" href="../assets/css/Style.css" />
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
   <div class="container py-2">
-    <a class="navbar-brand" href="../index.html">
-      <img src="../assets/Images/Travel Tour Logo.png" alt="Travel Tour" height="36" />
+    <a class="navbar-brand fw-bold fs-3 neuton-bold" href="../index.html">
+       <img class="footer-logo" src="../assets/Images/Travora Navbar.png" alt="Travora Logo" />
     </a>
     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-medium px-3" href="../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-medium" href="../index.html" id="nav-home">Home</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
-            <li><a class="dropdown-item py-2" href="destinations.html">Destinations</a></li>
-            <li><a class="dropdown-item py-2" href="about-us.html">About Us</a></li>
-            <li><a class="dropdown-item py-2" href="our-service.html">Our Service</a></li>
-            <li><a class="dropdown-item py-2" href="contact.html">Contact</a></li>
-            <li><a class="dropdown-item py-2" href="gallery.html">Gallery</a></li>
-            <li><a class="dropdown-item py-2" href="price-table.html">Price Table</a></li>
+          <a class="nav-link dropdown-toggle active fw-medium" href="#" id="nav-pages" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu" aria-labelledby="nav-pages">
+            <li><a class="dropdown-item" href="destinations.html">Destinations</a></li>
+            <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+            <li><a class="dropdown-item" href="our-service.html">Our Service</a></li>
+            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+            <li><a class="dropdown-item" href="price-table.html">Price Table</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">Tour List</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
-            <li><a class="dropdown-item py-2" href="tour-grid.html">Tour Grid</a></li>
-            <li><a class="dropdown-item py-2" href="data-pricing.html">Data &amp; Pricing</a></li>
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-tours" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tour List</a>
+          <ul class="dropdown-menu" aria-labelledby="nav-tours">
+            <li><a class="dropdown-item" href="tour-grid.html">Tour Grid</a></li>
+            <li><a class="dropdown-item" href="data-pricing.html">Date &amp; Pricing</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">Room List</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
-            <li><a class="dropdown-item py-2" href="room-grid.html">Room Grid</a></li>
-            <li><a class="dropdown-item py-2" href="room-cart.html">Room Cart</a></li>
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-rooms" role="button" data-bs-toggle="dropdown" aria-expanded="false">Room List</a>
+          <ul class="dropdown-menu" aria-labelledby="nav-rooms">
+            <li><a class="dropdown-item" href="room-grid.html">Room Grid</a></li>
+            <li><a class="dropdown-item" href="room-cart.html">Room Cart</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">Search</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
-            <li><a class="dropdown-item py-2" href="tour-search.html">Tour Search</a></li>
-            <li><a class="dropdown-item py-2" href="room-search.html">Room Search</a></li>
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-search" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search</a>
+          <ul class="dropdown-menu" aria-labelledby="nav-search">
+            <li><a class="dropdown-item" href="tour-search.html">Tour Search</a></li>
+            <li><a class="dropdown-item" href="room-search.html">Room Search</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link fw-medium px-3" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link fw-medium" href="blog.html" id="nav-blog">Blog</a></li>
       </ul>
       <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
         <div class="dropdown">
@@ -76,7 +76,6 @@
     </div>
   </div>
 </nav>
-
 <!-- PAGE HEADER -->
 <div class="page-hero">
   <div class="container">
@@ -200,7 +199,7 @@
                 <div class="star-rating mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <small class="text-muted ms-1">9 Reviews</small></div>
                 <p class="small text-muted mb-2"><i class="bi bi-clock me-1 text-primary"></i>5 Days 4 Nights</p>
                 <p class="small text-muted mb-2"><i class="bi bi-geo-alt me-1 text-primary"></i>Egypt</p>
-                <span class="price">$1,300</span>
+                <span class="price" data-price-usd="1300">$1,300</span>
               </div>
             </div>
           </div>
@@ -212,15 +211,15 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ========== FOOTER ========== -->
 <footer id="footer">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-3 col-md-6">
-        <img class="footer-logo" src="../assets/Images/Travel Tour Logo.png" alt="Travel Tour" />
+        <img class="footer-logo" src="../assets/Images/Travora Footer2.png" alt="Travora Logo" />
         <p>Your trusted partner for extraordinary travel experiences around the globe.</p>
         <div class="dropdown mt-3">
-          <button class="currency-btn btn border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle" style="color:var(--tt-footer-text);border-color:rgba(255,255,255,0.15)!important;" type="button" data-bs-toggle="dropdown">
+          <button class="currency-btn btn border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle" style="color: var(--tt-footer-text); border-color: rgba(255,255,255,0.15) !important;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-currency-dollar"></i> USD
           </button>
           <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
@@ -266,7 +265,12 @@
   </div>
   <div class="footer-bottom">
     <div class="container d-flex flex-wrap justify-content-between align-items-center">
-      <div><a href="../index.html">Home</a><a href="about-us.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../pages/about-us.html">About</a>
+        <a href="../pages/blog.html">Blog</a>
+        <a href="../pages/contact.html">Contact</a>
+      </div>
       <p class="mb-0 text-muted">Copyright &copy; 2026 GoodLayers. All Rights Reserved.</p>
     </div>
   </div>

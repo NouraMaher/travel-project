@@ -15,79 +15,70 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-white shadow-sm" id="mainNavbar">
-  <div class="container py-2">
-    <!-- LEFT: Logo -->
-    <a class="navbar-brand" href="../index.html">
-      <img src="../assets/images/Travel Tour Logo.png" alt="Travel Tour Logo" height="36" class="img-fluid" />
-    </a>
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- CENTER: Navigation -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto align-items-lg-center">
-        <li class="nav-item">
-          <a class="nav-link fw-medium px-3" href="../index.html" id="nav-home">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" id="nav-pages" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2" aria-labelledby="nav-pages">
-            <li><a class="dropdown-item py-2" href="destinations.html">Destinations</a></li>
-            <li><a class="dropdown-item py-2" href="about-us.html">About Us</a></li>
-            <li><a class="dropdown-item py-2" href="our-service.html">Our Service</a></li>
-            <li><a class="dropdown-item py-2" href="contact.html">Contact</a></li>
-            <li><a class="dropdown-item py-2" href="gallery.html">Gallery</a></li>
-            <li><a class="dropdown-item py-2" href="price-table.html">Price Table</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" id="nav-tours" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tour List</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2" aria-labelledby="nav-tours">
-            <li><a class="dropdown-item py-2" href="tour-grid.html">Tour Grid</a></li>
-            <li><a class="dropdown-item py-2" href="data-pricing.html">Data &amp; Pricing</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" id="nav-rooms" role="button" data-bs-toggle="dropdown" aria-expanded="false">Room List</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2" aria-labelledby="nav-rooms">
-            <li><a class="dropdown-item py-2" href="room-grid.html">Room Grid</a></li>
-            <li><a class="dropdown-item py-2" href="room-cart.html">Room Cart</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-medium px-3" href="#" id="nav-search" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search</a>
-          <ul class="dropdown-menu border-0 shadow rounded-3 py-2" aria-labelledby="nav-search">
-            <li><a class="dropdown-item py-2" href="tour-search.html">Tour Search</a></li>
-            <li><a class="dropdown-item py-2" href="room-search.html">Room Search</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-medium px-3" href="blog.html" id="nav-blog">Blog</a>
-        </li>
-      </ul>
-
-      <!-- RIGHT: Currency + Login / Register -->
-      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0 pt-3 pt-lg-0 border-top border-lg-0">
-        <div class="dropdown currency-dropdown">
-          <button class="currency-btn btn bg-transparent border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-currency-dollar"></i> USD
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end border-0 shadow rounded-3 py-2">
-            <li><a class="dropdown-item fw-semibold" href="#" data-currency="USD"><i class="bi bi-currency-dollar me-1"></i>USD</a></li>
-            <li><a class="dropdown-item fw-semibold" href="#" data-currency="EUR"><i class="bi bi-currency-euro me-1"></i>EUR</a></li>
-            <li><a class="dropdown-item fw-semibold" href="#" data-currency="GBP"><i class="bi bi-currency-pound me-1"></i>GBP</a></li>
-          </ul>
-        </div>
-        <button class="btn btn-primary fw-semibold rounded-3 px-4" type="button" data-bs-toggle="modal" data-bs-target="#authModal">
-          Login / Register
-        </button>
-      </div>
-    </div>
-  </div>
+<!-- ========== NAVBAR ========== --> 
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar"> 
+  <div class="container py-2"> 
+    <a class="navbar-brand fw-bold fs-3 neuton-bold" href="../index.html"> 
+       <img class="footer-logo" src="../assets/Images/Travora Navbar.png" alt="Travora Logo" /> 
+    </a> 
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+      <span class="navbar-toggler-icon"></span> 
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarNav"> 
+      <ul class="navbar-nav mx-auto align-items-lg-center"> 
+        <li class="nav-item"><a class="nav-link fw-medium" href="../index.html" id="nav-home">Home</a></li> 
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-pages" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a> 
+          <ul class="dropdown-menu" aria-labelledby="nav-pages"> 
+            <li><a class="dropdown-item" href="destinations.html">Destinations</a></li> 
+            <li><a class="dropdown-item" href="about-us.html">About Us</a></li> 
+            <li><a class="dropdown-item" href="our-service.html">Our Service</a></li> 
+            <li><a class="dropdown-item" href="contact.html">Contact</a></li> 
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li> 
+            <li><a class="dropdown-item" href="price-table.html">Price Table</a></li> 
+          </ul> 
+        </li> 
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-tours" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tour List</a> 
+          <ul class="dropdown-menu" aria-labelledby="nav-tours"> 
+            <li><a class="dropdown-item" href="tour-grid.html">Tour Grid</a></li> 
+            <li><a class="dropdown-item" href="data-pricing.html">Date &amp; Pricing</a></li> 
+          </ul> 
+        </li> 
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle active fw-medium" href="#" id="nav-rooms" role="button" data-bs-toggle="dropdown" aria-expanded="false">Room List</a> 
+          <ul class="dropdown-menu" aria-labelledby="nav-rooms"> 
+            <li><a class="dropdown-item" href="room-grid.html">Room Grid</a></li> 
+            <li><a class="dropdown-item" href="room-cart.html">Room Cart</a></li> 
+          </ul> 
+        </li> 
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle fw-medium" href="#" id="nav-search" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search</a> 
+          <ul class="dropdown-menu" aria-labelledby="nav-search"> 
+            <li><a class="dropdown-item" href="tour-search.html">Tour Search</a></li> 
+            <li><a class="dropdown-item" href="room-search.html">Room Search</a></li> 
+          </ul> 
+        </li> 
+        <li class="nav-item"><a class="nav-link fw-medium" href="blog.html" id="nav-blog">Blog</a></li> 
+      </ul> 
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0"> 
+        <div class="dropdown"> 
+          <button class="currency-btn btn bg-transparent border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+            <i class="bi bi-currency-dollar"></i> USD 
+          </button> 
+          <ul class="dropdown-menu dropdown-menu-end border-0 shadow rounded-3 py-2"> 
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="USD"><i class="bi bi-currency-dollar me-1"></i>USD</a></li> 
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="EUR"><i class="bi bi-currency-euro me-1"></i>EUR</a></li> 
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="GBP"><i class="bi bi-currency-pound me-1"></i>GBP</a></li> 
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="EGP"><i class="bi bi-currency-exchange me-1"></i>EGP</a></li> 
+          </ul> 
+        </div> 
+        <button class="btn btn-primary fw-semibold rounded-3 px-4" type="button" data-bs-toggle="modal" data-bs-target="#authModal">Login</button> 
+      </div> 
+    </div> 
+  </div> 
 </nav>
+
 
     <!-- ================= MAIN ================= -->
 
@@ -231,7 +222,7 @@
 
                         <span>From</span>
 
-                        <strong>$200.00</strong>
+                        <strong data-price-usd="200.00">$200.00</strong>
 
                         <small>per night</small>
 
@@ -685,7 +676,7 @@
                         </span>
 
                         <span class="room-price">
-                            From <del>$170</del> $138
+                            From <del data-price-usd="170">$170</del> $138
                         </span>
 
                     </div>
@@ -839,50 +830,67 @@
 
 </section>
 
+<!-- ========== FOOTER ========== -->
 <footer id="footer">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-3 col-md-6">
-        <img class="footer-logo" src="../assets/images/Travel Tour Logo.png" alt="Travel Tour Logo" />
-        <p>Your trusted partner for extraordinary travel experiences.</p>
-        <div class="footer-social mt-3">
-          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <img class="footer-logo" src="../assets/Images/Travora Footer2.png" alt="Travora Logo" />
+        <p>Your trusted partner for extraordinary travel experiences around the globe.</p>
+        <div class="dropdown mt-3">
+          <button class="currency-btn btn border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle" style="color: var(--tt-footer-text); border-color: rgba(255,255,255,0.15) !important;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-currency-dollar"></i> USD
+          </button>
+          <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="USD"><i class="bi bi-currency-dollar me-1"></i>USD</a></li>
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="EUR"><i class="bi bi-currency-euro me-1"></i>EUR</a></li>
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="GBP"><i class="bi bi-currency-pound me-1"></i>GBP</a></li>
+            <li><a class="dropdown-item fw-semibold" href="#" data-currency="EGP"><i class="bi bi-currency-exchange me-1"></i>EGP</a></li>
+          </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
         <h5>Contact</h5>
-        <address>
-          <p><i class="bi bi-geo-alt me-2 text-primary"></i>123 Travel Street, New York</p>
-          <p><i class="bi bi-telephone me-2 text-primary"></i>+1 (800) 123-4567</p>
-          <p><i class="bi bi-envelope me-2 text-primary"></i>info@traveltour.com</p>
-        </address>
+        <p><i class="bi bi-telephone me-2 text-primary"></i>T: 1-634-567-34</p>
+        <p><i class="bi bi-envelope me-2 text-primary"></i>E: contact@traveltourtheme.co</p>
+        <div class="footer-social mt-3">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
       </div>
       <div class="col-lg-3 col-md-6">
         <h5>Useful Links</h5>
         <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Travel Blog &amp; Tips</a></li>
+          <li><a href="about-us.html">Working With Us</a></li>
+          <li><a href="contact.html">Be Our Partner</a></li>
         </ul>
       </div>
       <div class="col-lg-3 col-md-6">
         <h5>Pay Safely With Us</h5>
-        <p>We support all major payment methods.</p>
+        <p>The payment is encrypted and transmitted securely with an SSL protocol.</p>
         <div class="d-flex flex-wrap gap-2 mt-3">
-          <span class="payment-badge"><i class="bi bi-credit-card me-1 text-primary"></i>Visa</span>
-          <span class="payment-badge"><i class="bi bi-paypal me-1 text-primary"></i>PayPal</span>
+          <span class="payment-icon"><i class="bi bi-credit-card-2-front"></i></span>
+          <span class="payment-icon"><i class="bi bi-credit-card"></i></span>
+          <span class="payment-icon"><i class="bi bi-paypal"></i></span>
+          <span class="payment-icon"><i class="bi bi-wallet2"></i></span>
         </div>
       </div>
     </div>
     <hr class="footer-divider" />
   </div>
   <div class="footer-bottom">
-    <div class="container">
-      <p>&copy; 2024 <a href="../index.html">Travel Tour</a>. All rights reserved.</p>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../pages/about-us.html">About</a>
+        <a href="../pages/blog.html">Blog</a>
+        <a href="../pages/contact.html">Contact</a>
+      </div>
+      <p class="mb-0 text-muted">Copyright &copy; 2026 GoodLayers. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
@@ -892,7 +900,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0 shadow-lg rounded-4">
       <div class="modal-header border-bottom-0 pb-0">
-        <h5 class="modal-title neuton-bold fs-3" id="authModalLabel">Welcome to <span class="text-primary font-italic">Travel Tour</span></h5>
+        <h5 class="modal-title neuton-bold fs-3" id="authModalLabel">Welcome to <span class="text-primary font-italic">Travora</span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-4 p-md-5 pt-3">
