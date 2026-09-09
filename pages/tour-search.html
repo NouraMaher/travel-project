@@ -13,6 +13,8 @@ Tour search · HTML
   <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/tour-search.css">
 </head>
 <body>
  
@@ -80,16 +82,137 @@ Tour search · HTML
   </div>
 </nav>
  
-<!-- PAGE CONTENT PLACEHOLDER -->
-<div class="container placeholder-hero text-center">
-  <h1 class="mb-3">Tour Search</h1>
-  <p class="placeholder-hero-text">
-    This page is reserved for a team member. Add your content here.
-  </p>
-  <a href="../index.html" class="btn-blue">
-    <i class="bi bi-house me-2"></i>Back to Home
-  </a>
+
+<section class="hero">
+  <h1>Search Tours</h1>
+</section>
+
+<main class="search-page">
+  <aside class="sidebar">
+    <div class="filter-box">
+      <h3>Tour Search</h3>
+
+      <label for="keywords">Keywords</label>
+      <input type="text" id="keywords" placeholder="Search tours...">
+
+      <label for="duration">Duration</label>
+      <select id="duration">
+        <option value="">Any Duration</option>
+        <option value="1-3">1 - 3 Days</option>
+        <option value="4-7">4 - 7 Days</option>
+        <option value="8-14">8 - 14 Days</option>
+        <option value="15+">15+ Days</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date">
+
+      <label for="month">Month</label>
+      <select id="month">
+        <option value="">Any Month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+
+      <label for="minPrice">Min Price</label>
+      <input type="number" id="minPrice" placeholder="Min price">
+
+      <label for="maxPrice">Max Price</label>
+      <input type="number" id="maxPrice" placeholder="Max price">
+
+      <label for="rating">Rating</label>
+      <select id="rating">
+        <option value="">Any Rating</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4+ Stars</option>
+        <option value="3">3+ Stars</option>
+      </select>
+
+      <button type="button" id="clearFilter">Clear Filter</button>
+    </div>
+
+    <div class="filter-box">
+      <h3>Type Filter</h3>
+
+      <label for="tourAge">Tour Age</label>
+      <select id="tourAge">
+        <option value="">Any Age</option>
+        <option value="young">Young</option>
+        <option value="adult">Adult</option>
+        <option value="senior">Senior</option>
+      </select>
+
+      <label for="activity">Activity</label>
+      <select id="activity">
+        <option value="">Any Activity</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Culture">Culture</option>
+        <option value="Relaxation">Relaxation</option>
+        <option value="Nature">Nature</option>
+      </select>
+
+      <label for="destination">Destination</label>
+      <select id="destination">
+        <option value="">Any Destination</option>
+        <option value="Egypt">Egypt</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="America">America</option>
+        <option value="Africa">Africa</option>
+      </select>
+
+      <button type="button" id="searchBtn">SEARCH</button>
+    </div>
+  </aside>
+
+  <section class="results">
+    <div class="results-header">
+      <p id="resultsCount">Showing all tours</p>
+
+      <div class="sort-bar">
+        <select id="sortSelect">
+          <option value="default">Sort By</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating-high">Rating: High to Low</option>
+          <option value="name">Name</option>
+        </select>
+
+        <select id="sortOrder">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+
+        <button type="button" id="gridView">Grid</button>
+        <button type="button" id="listView">List</button>
+      </div>
+    </div>
+
+    <div class="tour-grid" id="tourGrid"></div>
+
+    <div class="pagination" id="pagination"></div>
+  </section>
+</main>
+
+<div id="videoModal" class="video-modal">
+  <div class="video-modal-content">
+    <button type="button" class="close-video" onclick="closeVideoModal()">&times;</button>
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  </div>
 </div>
+
+
+
  
 <!-- ========== FOOTER ========== -->
 <footer id="footer">
@@ -233,6 +356,9 @@ Tour search · HTML
  
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/script.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/tour-search.js"></script>
 </body>
 </html>
  
