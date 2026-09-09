@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/gallery.css" />
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
   <div class="container py-2">
     <a class="navbar-brand fw-bold fs-3 neuton-bold" href="../index.html">
-       <img class="footer-logo" src="../assets/Images/Travora Navbar.png" alt="Travora Logo" />
+      <img class="footer-logo" src="../assets/Images/Travora Navbar.png" alt="Travora Logo" />
     </a>
     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -77,15 +78,242 @@
   </div>
 </nav>
 
-<!-- PAGE CONTENT PLACEHOLDER -->
-<div class="container placeholder-hero text-center">
-  <h1 class="mb-3">Gallery</h1>
-  <p class="placeholder-hero-text">
-    This page is reserved for a team member. Add your content here.
-  </p>
-  <a href="../index.html" class="btn-blue">
-    <i class="bi bi-house me-2"></i>Back to Home
-  </a>
+<!-- ========== GALLERY HERO ========== -->
+<div class="gallery-hero">
+  <div class="container">
+    <h1>Photo <span>Gallery</span></h1>
+    <p>Moments collected from every trail, city and coastline we've toured.</p>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- ========== 1) GRID STYLE — 4 UP, WITH SPACE ========== -->
+<section class="gallery-block">
+  <div class="container">
+    <div class="gallery-block-head text-center">
+      <h3 class="gallery-block-title">Travel <span>Snapshots</span></h3>
+      <p class="gallery-block-subtitle">A wide, airy look at our favorite journeys</p>
+    </div>
+
+    <div class="gallery-grid-space">
+      <a class="gallery-grid-item gallery-lightbox-trigger"
+         href="../assets/Images/raimond-klavins- gallery first 1.jpg"
+         data-group="grid" data-full="../assets/Images/raimond-klavins- gallery first 1.jpg"
+         data-caption="Mountain Monastery, Bhutan">
+        <img src="../assets/Images/raimond-klavins- gallery first 1.jpg" alt="Mountain Monastery, Bhutan" loading="lazy" />
+        <span class="gallery-overlay"><i class="bi bi-zoom-in"></i></span>
+      </a>
+      <a class="gallery-grid-item gallery-lightbox-trigger"
+         href="../assets/Images/redd-Gallery First 2.jpg"
+         data-group="grid" data-full="../assets/Images/redd-Gallery First 2.jpg"
+         data-caption="Under the Bridge, New York">
+        <img src="../assets/Images/redd-Gallery First 2.jpg" alt="Under the Bridge, New York" loading="lazy" />
+        <span class="gallery-overlay"><i class="bi bi-zoom-in"></i></span>
+      </a>
+      <a class="gallery-grid-item gallery-lightbox-trigger"
+         href="../assets/Images/yiran-ding-aleery first 3.jpg"
+         data-group="grid" data-full="../assets/Images/yiran-ding-aleery first 3.jpg"
+         data-caption="Lantern Alley, Old Town">
+        <img src="../assets/Images/yiran-ding-aleery first 3.jpg" alt="Lantern Alley, Old Town" loading="lazy" />
+        <span class="gallery-overlay"><i class="bi bi-zoom-in"></i></span>
+      </a>
+      <a class="gallery-grid-item gallery-lightbox-trigger"
+         href="../assets/Images/Egipto-Gallery first 4.jpg"
+         data-group="grid" data-full="../assets/Images/Egipto-Gallery first 4.jpg"
+         data-caption="Pyramids of Giza, Egypt">
+        <img src="../assets/Images/Egipto-Gallery first 4.jpg" alt="Pyramids of Giza, Egypt" loading="lazy" />
+        <span class="gallery-overlay"><i class="bi bi-zoom-in"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2) HORIZONTAL SCROLLING — HOVER W/ CENTER CAPTION ========== -->
+<section class="gallery-block bg-alt">
+  <div class="container">
+    <div class="gallery-block-head text-center">
+      <h3 class="gallery-block-title">Scroll The <span>Journey</span></h3>
+      <p class="gallery-block-subtitle">Drag the bar or swipe through, frame by frame</p>
+    </div>
+
+    <div class="hscroll-wrap">
+      <div class="hscroll-track" id="hscrollTrack">
+        <div class="hscroll-item gallery-lightbox-trigger"
+             data-group="hscroll" data-full="../assets/Images/raimond-klavins-gallery second 1.jpg"
+             data-caption="Mountain Monastery, Bhutan">
+          <img src="../assets/Images/raimond-klavins-gallery second 1.jpg" alt="Mountain Monastery, Bhutan" loading="lazy" />
+          <div class="hscroll-caption">
+            <h5>Mountain Monastery</h5>
+            <p>Bhutan</p>
+          </div>
+        </div>
+        <div class="hscroll-item gallery-lightbox-trigger"
+             data-group="hscroll" data-full="../assets/Images/redd Gallery second 2.jpg"
+             data-caption="Under the Bridge, New York">
+          <img src="../assets/Images/redd Gallery second 2.jpg" alt="Under the Bridge, New York" loading="lazy" />
+          <div class="hscroll-caption">
+            <h5>Under the Bridge</h5>
+            <p>New York</p>
+          </div>
+        </div>
+        <div class="hscroll-item gallery-lightbox-trigger"
+             data-group="hscroll" data-full="../assets/Images/yiran-dinGallery second 3.jpg"
+             data-caption="Lantern Alley, Old Town">
+          <img src="../assets/Images/yiran-dinGallery second 3.jpg" alt="Lantern Alley, Old Town" loading="lazy" />
+          <div class="hscroll-caption">
+            <h5>Lantern Alley</h5>
+            <p>Old Town</p>
+          </div>
+        </div>
+        <div class="hscroll-item gallery-lightbox-trigger"
+             data-group="hscroll" data-full="../assets/Images/luca-bravo-Gallery second 4.jpg"
+             data-caption="Emerald Waters, Dolomites">
+          <img src="../assets/Images/luca-bravo-Gallery second 4.jpg" alt="Emerald Waters, Dolomites" loading="lazy" />
+          <div class="hscroll-caption">
+            <h5>Emerald Waters</h5>
+            <p>Dolomites</p>
+          </div>
+        </div>
+      </div>
+      <div class="hscroll-scrollbar" id="hscrollBar">
+        <div class="hscroll-scrollbar-thumb" id="hscrollThumb"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3) GALLERY PLAIN CAROUSEL — HOVER W/ LEFT TITLE & CAPTION ========== -->
+<section class="gallery-block">
+  <div class="container">
+    <div class="gallery-block-head text-center">
+      <h3 class="gallery-block-title">Featured <span>Destinations</span></h3>
+      <p class="gallery-block-subtitle">One breathtaking view at a time</p>
+    </div>
+
+    <div class="plain-carousel" id="plainCarousel">
+      <div class="plain-carousel-track" id="plainTrack">
+        <div class="plain-carousel-slide">
+          <img src="../assets/Images/raimond-klavinsGallery third caroussel.jpg" alt="Mountain Monastery, Bhutan" loading="lazy" />
+          <div class="plain-carousel-caption">
+            <h5>Mountain Monastery</h5>
+            <p>Bhutan</p>
+          </div>
+        </div>
+        <div class="plain-carousel-slide">
+          <img src="../assets/Images/redd--unsplash third caroussel 2.jpg" alt="Under the Bridge, New York" loading="lazy" />
+          <div class="plain-carousel-caption">
+            <h5>Under the Bridge</h5>
+            <p>New York</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-custom prev rounded-circle shadow-sm d-flex align-items-center justify-content-center" data-dir="-1" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+      <button class="carousel-control-custom next rounded-circle shadow-sm d-flex align-items-center justify-content-center" data-dir="1" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4) GALLERY WITH THUMBNAIL — HOVER W/ TITLE & CAPTION ========== -->
+<section class="gallery-block bg-alt">
+  <div class="container">
+    <div class="gallery-block-head text-center">
+      <h3 class="gallery-block-title">Explore Every <span>Frame</span></h3>
+      <p class="gallery-block-subtitle">Pick a thumbnail, relive the moment</p>
+    </div>
+
+    <div class="thumb-gallery" id="thumbGallery">
+      <div class="thumb-gallery-main">
+        <img id="thumbMainImg" src="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg" alt="Gallery main" />
+        <div class="thumb-gallery-caption"><h5 id="thumbMainTitle">Lantern Alley, Old Town</h5></div>
+        <button class="carousel-control-custom prev rounded-circle shadow-sm d-flex align-items-center justify-content-center" id="thumbPrev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+        <button class="carousel-control-custom next rounded-circle shadow-sm d-flex align-items-center justify-content-center" id="thumbNext" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="thumb-gallery-strip">
+        <button class="thumb-gallery-thumb active" data-full="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg" data-title="Lantern Alley, Old Town">
+          <img src="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg" alt="Lantern Alley, Old Town" loading="lazy" />
+        </button>
+        <button class="thumb-gallery-thumb" data-full="../assets/Images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg" data-title="Sunset Tides, Coastline">
+          <img src="../assets/Images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg" alt="Sunset Tides, Coastline" loading="lazy" />
+        </button>
+        <button class="thumb-gallery-thumb" data-full="../assets/Images/redd-wOj5odhDOZ0-unsplash.jpg" data-title="Under the Bridge, New York">
+          <img src="../assets/Images/redd-wOj5odhDOZ0-unsplash.jpg" alt="Under the Bridge, New York" loading="lazy" />
+        </button>
+        <button class="thumb-gallery-thumb" data-full="../assets/Images/raimond-klavins-JqT2Wp5S0Dk-unsplash.jpg" data-title="Mountain Monastery, Bhutan">
+          <img src="../assets/Images/raimond-klavins-JqT2Wp5S0Dk-unsplash.jpg" alt="Mountain Monastery, Bhutan" loading="lazy" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5) GALLERY VERTICAL — CAPTION UNDERNEATH, HOVER W/ ICON ========== -->
+<section class="gallery-block">
+  <div class="container">
+    <div class="gallery-block-head text-center">
+      <h3 class="gallery-block-title">The Complete <span>Album</span></h3>
+      <p class="gallery-block-subtitle">Every trip, captured top to bottom</p>
+    </div>
+
+    <div class="gallery-vertical">
+      <figure class="gallery-vertical-item">
+        <a class="gallery-vertical-link gallery-lightbox-trigger"
+           href="../assets/Images/raimond-klavins-JqT2Wp5S0Dk-unsplash.jpg"
+           data-group="vertical" data-full="../assets/Images/raimond-klavins-JqT2Wp5S0Dk-unsplash.jpg"
+           data-caption="Mountain Monastery, Bhutan">
+          <img src="../assets/Images/raimond-klavins-JqT2Wp5S0Dk-unsplash.jpg" alt="Mountain Monastery, Bhutan" loading="lazy" />
+          <span class="gallery-vertical-overlay"><i class="bi bi-zoom-in"></i></span>
+        </a>
+        <figcaption>Mountain Monastery, Bhutan</figcaption>
+      </figure>
+
+      <figure class="gallery-vertical-item">
+        <a class="gallery-vertical-link gallery-lightbox-trigger"
+           href="../assets/Images/redd-wOj5odhDOZ0-unsplash.jpg"
+           data-group="vertical" data-full="../assets/Images/redd-wOj5odhDOZ0-unsplash.jpg"
+           data-caption="Under the Bridge, New York">
+          <img src="../assets/Images/redd-wOj5odhDOZ0-unsplash.jpg" alt="Under the Bridge, New York" loading="lazy" />
+          <span class="gallery-vertical-overlay"><i class="bi bi-zoom-in"></i></span>
+        </a>
+        <figcaption>Under the Bridge, New York</figcaption>
+      </figure>
+
+      <figure class="gallery-vertical-item">
+        <a class="gallery-vertical-link gallery-lightbox-trigger"
+           href="../assets/Images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg"
+           data-group="vertical" data-full="../assets/Images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg"
+           data-caption="Sunset Tides, Coastline">
+          <img src="../assets/Images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg" alt="Sunset Tides, Coastline" loading="lazy" />
+          <span class="gallery-vertical-overlay"><i class="bi bi-zoom-in"></i></span>
+        </a>
+        <figcaption>Sunset Tides, Coastline</figcaption>
+      </figure>
+
+      <figure class="gallery-vertical-item">
+        <a class="gallery-vertical-link gallery-lightbox-trigger"
+           href="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg"
+           data-group="vertical" data-full="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg"
+           data-caption="Lantern Alley, Old Town">
+          <img src="../assets/Images/yiran-ding-753642-unsplash-scaled.jpg" alt="Lantern Alley, Old Town" loading="lazy" />
+          <span class="gallery-vertical-overlay"><i class="bi bi-zoom-in"></i></span>
+        </a>
+        <figcaption>Lantern Alley, Old Town</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Shared lightbox for grid / horizontal-scroll / vertical sections -->
+<div class="gallery-lightbox" id="galleryLightbox">
+  <button class="gallery-lightbox-close" id="lightboxClose" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+  <button class="gallery-lightbox-nav prev" id="lightboxPrev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+  <img class="gallery-lightbox-img" id="lightboxImg" src="" alt="" />
+  <button class="gallery-lightbox-nav next" id="lightboxNext" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+  <div class="gallery-lightbox-caption" id="lightboxCaption"></div>
 </div>
 
 <!-- ========== FOOTER ========== -->
@@ -162,7 +390,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-4 p-md-5 pt-3">
-        
+
         <!-- Nav Tabs -->
         <ul class="nav nav-pills nav-fill mb-4 bg-light rounded-pill p-1" id="authTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -230,5 +458,6 @@
 
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/script.js"></script>
+<script src="../assets/js/gallery.js"></script>
 </body>
 </html>

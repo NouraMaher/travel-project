@@ -1189,3 +1189,220 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+/* =============================================
+   GALLERY PAGE — behaviour for pages/gallery.html
+   Vanilla JS, no external libraries (same approach
+   as the multi-card carousel in script.js).
+   ============================================= */
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------------------------------------------
+     1) HORIZONTAL SCROLLING — custom draggable scrollbar
+     --------------------------------------------- */
+  var hTrack = document.getElementById('hscrollTrack');
+  var hBar = document.getElementById('hscrollBar');
+  var hThumb = document.getElementById('hscrollThumb');
+
+  if (hTrack && hBar && hThumb) {
+    function updateThumb() {
+      var ratio = hTrack.clientWidth / hTrack.scrollWidth;
+      var thumbWidth = Math.max(ratio * hBar.clientWidth, 40);
+      var maxThumbLeft = hBar.clientWidth - thumbWidth;
+      var scrollRatio = hTrack.scrollLeft / (hTrack.scrollWidth - hTrack.clientWidth || 1);
+      hThumb.style.width = thumbWidth + 'px';
+      hThumb.style.left = (scrollRatio * maxThumbLeft) + 'px';
+    }
+
+    hTrack.addEventListener('scroll', updateThumb);
+    window.addEventListener('resize', updateThumb);
+    updateThumb();
+
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartScroll = 0;
+
+    hThumb.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = hTrack.scrollLeft;
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', function (e) {
+      if (!isDragging) return;
+      var deltaX = e.clientX - dragStartX;
+      var trackScrollable = hTrack.scrollWidth - hTrack.clientWidth;
+      var barScrollable = hBar.clientWidth - hThumb.offsetWidth;
+      var scrollDelta = (deltaX / (barScrollable || 1)) * trackScrollable;
+      hTrack.scrollLeft = dragStartScroll + scrollDelta;
+    });
+
+    document.addEventListener('mouseup', function () {
+      isDragging = false;
+      document.body.style.userSelect = '';
+    });
+
+    /* click on the bar itself jumps to that position */
+    hBar.addEventListener('mousedown', function (e) {
+      if (e.target === hThumb) return;
+      var barRect = hBar.getBoundingClientRect();
+      var clickRatio = (e.clientX - barRect.left) / barRect.width;
+      hTrack.scrollLeft = clickRatio * (hTrack.scrollWidth - hTrack.clientWidth);
+    });
+
+    /* touch support */
+    hThumb.addEventListener('touchstart', function (e) {
+      isDragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartScroll = hTrack.scrollLeft;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function (e) {
+      if (!isDragging) return;
+      var deltaX = e.touches[0].clientX - dragStartX;
+      var trackScrollable = hTrack.scrollWidth - hTrack.clientWidth;
+      var barScrollable = hBar.clientWidth - hThumb.offsetWidth;
+      var scrollDelta = (deltaX / (barScrollable || 1)) * trackScrollable;
+      hTrack.scrollLeft = dragStartScroll + scrollDelta;
+    }, { passive: true });
+
+    document.addEventListener('touchend', function () {
+      isDragging = false;
+    });
+  }
+
+  /* ---------------------------------------------
+     2) GALLERY PLAIN CAROUSEL — prev/next + autoplay
+     --------------------------------------------- */
+  var plainCarousel = document.getElementById('plainCarousel');
+  if (plainCarousel) {
+    var plainTrack = document.getElementById('plainTrack');
+    var plainSlides = plainTrack.querySelectorAll('.plain-carousel-slide');
+    var plainIndex = 0;
+    var plainTimer = null;
+
+    function goToPlainSlide(i) {
+      plainIndex = (i + plainSlides.length) % plainSlides.length;
+      plainTrack.style.transform = 'translateX(-' + (plainIndex * 100) + '%)';
+    }
+
+    plainCarousel.querySelectorAll('.carousel-control-custom').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        goToPlainSlide(plainIndex + parseInt(btn.dataset.dir, 10));
+        restartPlainAutoplay();
+      });
+    });
+
+    function startPlainAutoplay() {
+      plainTimer = setInterval(function () {
+        goToPlainSlide(plainIndex + 1);
+      }, 5000);
+    }
+    function restartPlainAutoplay() {
+      clearInterval(plainTimer);
+      startPlainAutoplay();
+    }
+    plainCarousel.addEventListener('mouseenter', function () { clearInterval(plainTimer); });
+    plainCarousel.addEventListener('mouseleave', startPlainAutoplay);
+    startPlainAutoplay();
+  }
+
+  /* ---------------------------------------------
+     3) GALLERY WITH THUMBNAIL
+     --------------------------------------------- */
+  var thumbGallery = document.getElementById('thumbGallery');
+  if (thumbGallery) {
+    var thumbMainImg = document.getElementById('thumbMainImg');
+    var thumbMainTitle = document.getElementById('thumbMainTitle');
+    var thumbs = thumbGallery.querySelectorAll('.thumb-gallery-thumb');
+    var thumbIndex = 0;
+
+    function showThumb(i) {
+      thumbIndex = (i + thumbs.length) % thumbs.length;
+      var target = thumbs[thumbIndex];
+      thumbMainImg.style.opacity = 0;
+      setTimeout(function () {
+        thumbMainImg.src = target.dataset.full;
+        thumbMainTitle.textContent = target.dataset.title;
+        thumbMainImg.style.opacity = 1;
+      }, 150);
+      thumbs.forEach(function (t) { t.classList.remove('active'); });
+      target.classList.add('active');
+    }
+
+    thumbs.forEach(function (t, i) {
+      t.addEventListener('click', function () { showThumb(i); });
+    });
+
+    var thumbPrev = document.getElementById('thumbPrev');
+    var thumbNext = document.getElementById('thumbNext');
+    if (thumbPrev) thumbPrev.addEventListener('click', function () { showThumb(thumbIndex - 1); });
+    if (thumbNext) thumbNext.addEventListener('click', function () { showThumb(thumbIndex + 1); });
+  }
+
+  /* ---------------------------------------------
+     4) SHARED LIGHTBOX — grid / horizontal-scroll / vertical
+     --------------------------------------------- */
+  var lightbox = document.getElementById('galleryLightbox');
+  if (lightbox) {
+    var lbImg = document.getElementById('lightboxImg');
+    var lbCaption = document.getElementById('lightboxCaption');
+    var lbClose = document.getElementById('lightboxClose');
+    var lbPrev = document.getElementById('lightboxPrev');
+    var lbNext = document.getElementById('lightboxNext');
+
+    var groups = {};
+    document.querySelectorAll('.gallery-lightbox-trigger').forEach(function (el) {
+      var group = el.dataset.group || 'default';
+      if (!groups[group]) groups[group] = [];
+      groups[group].push(el);
+    });
+
+    var activeGroup = [];
+    var activeIndex = 0;
+
+    function openLightbox(group, index) {
+      activeGroup = groups[group];
+      activeIndex = index;
+      renderLightbox();
+      lightbox.classList.add('show');
+    }
+    function renderLightbox() {
+      var el = activeGroup[activeIndex];
+      lbImg.src = el.dataset.full;
+      lbCaption.textContent = el.dataset.caption || '';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('show');
+    }
+
+    Object.keys(groups).forEach(function (group) {
+      groups[group].forEach(function (el, index) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(group, index);
+        });
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    lbPrev.addEventListener('click', function () {
+      activeIndex = (activeIndex - 1 + activeGroup.length) % activeGroup.length;
+      renderLightbox();
+    });
+    lbNext.addEventListener('click', function () {
+      activeIndex = (activeIndex + 1) % activeGroup.length;
+      renderLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('show')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lbPrev.click();
+      if (e.key === 'ArrowRight') lbNext.click();
+    });
+  }
+
+});

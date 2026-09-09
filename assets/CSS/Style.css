@@ -2419,4 +2419,514 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   body:has(.room-header) .gallery-image { height: 110px !important; }
   body:has(.room-header) .booking { padding: 20px !important; }
 }
+/* =============================================
+   GALLERY PAGE — additions for pages/gallery.html
+   Paste into assets/CSS/Style.css, or keep linked
+   as its own file. Uses the site's existing
+   variables from :root (--tt-blue, --tt-dark, etc).
+   ============================================= */
+
+/* --- Page Hero (self-contained, avoids the low-contrast
+   .page-hero p / .breadcrumb rules already in Style.css) --- */
+.gallery-hero {
+  background-color: whitesmoke;
+  padding: 90px 0 40px;
+  text-align: center;
+}
+.gallery-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--tt-dark);
+}
+.gallery-hero h1 span {
+  color: var(--tt-blue);
+  font-style: italic;
+}
+.gallery-hero p {
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.gallery-hero .breadcrumb {
+  justify-content: center;
+  margin-bottom: 0;
+}
+.gallery-hero .breadcrumb-item a {
+  color: var(--tt-text-muted);
+}
+.gallery-hero .breadcrumb-item.active {
+  color: var(--tt-dark);
+}
+
+/* --- Shared section head (title + small line underneath,
+   same rhythm as the rest of the site's .section-title) --- */
+.gallery-block {
+  padding: 60px 0;
+}
+.gallery-block.bg-alt {
+  background: #f7f9fc;
+}
+.gallery-block-head {
+  margin-bottom: 35px;
+}
+.gallery-block-title {
+  font-family: 'Neuton', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--tt-dark);
+  margin-bottom: 6px;
+}
+.gallery-block-title span {
+  color: var(--tt-blue);
+  font-style: italic;
+}
+.gallery-block-subtitle {
+  color: var(--tt-text-muted);
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 0;
+}
+
+/* =============================================
+   1) GRID STYLE — 4 up, with space
+   ============================================= */
+.gallery-grid-space {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.gallery-grid-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #e9ecef;
+}
+.gallery-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery-grid-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-grid-item .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 14, 20, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-grid-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  .gallery-grid-space {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+@media (max-width: 575.98px) {
+  .gallery-grid-space {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* =============================================
+   2) HORIZONTAL SCROLLING — hover w/ center caption
+   custom scrollbar underneath, draggable
+   ============================================= */
+.hscroll-wrap {
+  position: relative;
+}
+.hscroll-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hscroll-track::-webkit-scrollbar {
+  display: none;
+}
+.hscroll-item {
+  position: relative;
+  flex: 0 0 clamp(230px, 26vw, 340px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #e9ecef;
+}
+.hscroll-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.hscroll-item:hover img {
+  transform: scale(1.08);
+}
+.hscroll-item .hscroll-caption {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 14, 20, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.hscroll-item:hover .hscroll-caption {
+  opacity: 1;
+}
+.hscroll-item .hscroll-caption h5 {
+  font-family: 'Neuton', serif;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.hscroll-item .hscroll-caption p {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  opacity: 0.85;
+}
+
+.hscroll-scrollbar {
+  position: relative;
+  height: 4px;
+  background: var(--tt-border);
+  border-radius: 2px;
+  margin-top: 22px;
+  cursor: pointer;
+}
+.hscroll-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--tt-blue);
+  border-radius: 2px;
+  cursor: grab;
+}
+.hscroll-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+/* =============================================
+   3) GALLERY PLAIN CAROUSEL — hover w/ left title & caption
+   ============================================= */
+.plain-carousel {
+  position: relative;
+  overflow: hidden;
+  height: clamp(320px, 42vw, 520px);
+  background: #000;
+}
+.plain-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+.plain-carousel-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+}
+.plain-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.plain-carousel-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 40px 50px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.plain-carousel-slide:hover .plain-carousel-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+.plain-carousel-caption h5 {
+  font-family: 'Neuton', serif;
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+.plain-carousel-caption p {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 0;
+}
+.plain-carousel .carousel-control-custom {
+  z-index: 5;
+}
+.plain-carousel .carousel-control-custom.prev {
+  left: 16px;
+}
+.plain-carousel .carousel-control-custom.next {
+  right: 16px;
+}
+
+/* =============================================
+   4) GALLERY WITH THUMBNAIL — hover w/ title & caption
+   ============================================= */
+.thumb-gallery-main {
+  position: relative;
+  height: clamp(320px, 42vw, 520px);
+  overflow: hidden;
+  background: #000;
+}
+.thumb-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease;
+}
+.thumb-gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  pointer-events: none;
+}
+.thumb-gallery-caption h5 {
+  font-family: 'Neuton', serif;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.thumb-gallery-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.7));
+  pointer-events: none;
+}
+.thumb-gallery-main .carousel-control-custom {
+  z-index: 5;
+}
+.thumb-gallery-main .carousel-control-custom.prev {
+  left: 16px;
+}
+.thumb-gallery-main .carousel-control-custom.next {
+  right: 16px;
+}
+.thumb-gallery-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+}
+.thumb-gallery-thumb {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.25s, border-color 0.25s;
+  background: #000;
+}
+.thumb-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb-gallery-thumb:hover {
+  opacity: 1;
+}
+.thumb-gallery-thumb.active {
+  opacity: 1;
+  border-color: var(--tt-blue);
+}
+@media (max-width: 575.98px) {
+  .thumb-gallery-thumb {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* =============================================
+   5) GALLERY VERTICAL — caption underneath, hover w/ icon
+   ============================================= */
+.gallery-vertical {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.gallery-vertical-item {
+  margin-bottom: 34px;
+}
+.gallery-vertical-item:last-child {
+  margin-bottom: 0;
+}
+.gallery-vertical-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #e9ecef;
+}
+.gallery-vertical-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.gallery-vertical-link:hover img {
+  transform: scale(1.05);
+}
+.gallery-vertical-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 14, 20, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-vertical-link:hover .gallery-vertical-overlay {
+  opacity: 1;
+}
+.gallery-vertical-item figcaption {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--tt-text-muted);
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* =============================================
+   Shared lightbox (grid / horizontal-scroll / vertical)
+   ============================================= */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 12, 16, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.gallery-lightbox.show {
+  display: flex;
+}
+.gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 82vh;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.gallery-lightbox-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+.gallery-lightbox-close,
+.gallery-lightbox-nav {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gallery-lightbox-close:hover,
+.gallery-lightbox-nav:hover {
+  background: var(--tt-blue);
+  border-color: var(--tt-blue);
+}
+.gallery-lightbox-close {
+  top: 24px;
+  right: 24px;
+}
+.gallery-lightbox-nav.prev {
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.gallery-lightbox-nav.next {
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 575.98px) {
+  .gallery-lightbox {
+    padding: 16px;
+  }
+  .gallery-lightbox-nav,
+  .gallery-lightbox-close {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  .gallery-lightbox-nav.prev {
+    left: 8px;
+  }
+  .gallery-lightbox-nav.next {
+    right: 8px;
+  }
+}
+
+/* Defensive: decorative overlays/captions never intercept clicks
+   meant for the parent link/button/track underneath them. */
+.gallery-overlay,
+.hscroll-caption,
+.plain-carousel-caption,
+.thumb-gallery-caption,
+.gallery-vertical-overlay {
+  pointer-events: none;
+}
+
 
