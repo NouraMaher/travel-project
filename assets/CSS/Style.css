@@ -4171,3 +4171,329 @@ body:has(.search-hero-title) .room-card .text-decoration-none:hover {
   background: var(--tt-blue-light);
   color: var(--tt-blue);
 }
+
+/* =============================================
+   ABOUT US PAGE — additions for pages/about-us.html
+   Paste into assets/CSS/Style.css, or keep linked
+   as its own file. Uses the site's existing
+   variables from :root (--tt-blue, --tt-dark, etc).
+   ============================================= */
+
+/* --- Hero: whitesmoke band with a soft diagonal
+   wave cut into the white page background below --- */
+.about-hero {
+  position: relative;
+  background-color: whitesmoke;
+  padding: 90px 0 130px;
+  text-align: center;
+  overflow: hidden;
+}
+.about-hero .container {
+  position: relative;
+  z-index: 2;
+}
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--tt-dark);
+}
+.about-hero p {
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  margin-bottom: 0;
+}
+.about-hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
+/* =============================================
+   1) THE STORY ABOUT US — collage image + copy
+   ============================================= */
+.about-story {
+  padding: 70px 0 60px;
+}
+.about-story-eyebrow {
+  text-align: center;
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  margin-bottom: 45px;
+}
+.about-story-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about-story h2 {
+  font-family: 'Neuton', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--tt-dark);
+  margin-bottom: 18px;
+}
+.about-story-lead {
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 34px;
+}
+
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.about-feature-icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--tt-dark);
+}
+.about-feature h5 {
+  font-family: 'Neuton', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--tt-dark);
+  margin-bottom: 6px;
+}
+.about-feature p {
+  font-size: 14px;
+  color: var(--tt-text-muted);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.about-story .btn-book-now {
+  display: inline-block;
+  background: var(--tt-blue);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 30px;
+  border-radius: 6px;
+  margin-top: 6px;
+  transition: background 0.2s;
+}
+.about-story .btn-book-now:hover {
+  background: var(--tt-blue-hover);
+  color: #fff;
+}
+
+/* =============================================
+   2) FREQUENTLY ASKED QUESTIONS
+   ============================================= */
+.about-faq {
+  padding: 60px 0 70px;
+  background: #fff;
+}
+.about-faq-title {
+  font-family: 'Neuton', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--tt-dark);
+  margin-bottom: 45px;
+}
+.about-faq-item {
+  border-bottom: 1px solid var(--tt-border);
+  padding: 22px 0;
+  transition: background 0.2s;
+}
+.about-faq-item:first-child {
+  border-top: 1px solid var(--tt-border);
+}
+.about-faq-item.is-open {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(30, 45, 61, 0.08);
+  border-radius: 8px;
+  border-bottom-color: transparent;
+  padding: 26px 24px;
+  margin: -1px 0 21px;
+}
+.about-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.about-faq-item.is-open .about-faq-q {
+  margin-bottom: 0;
+}
+.about-faq-q h4 {
+  font-family: 'Neuton', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--tt-dark);
+  margin-bottom: 0;
+}
+.about-faq-toggle {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  color: var(--tt-dark);
+  font-size: 18px;
+  line-height: 1;
+}
+.about-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.about-faq-item.is-open .about-faq-a {
+  max-height: 220px;
+}
+.about-faq-a p {
+  color: var(--tt-text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 16px 0 0;
+  padding-right: 34px;
+}
+
+/* =============================================
+   3) TEAM & FOUNDERS
+   ============================================= */
+.about-team {
+  padding: 20px 0 70px;
+}
+.about-team-title {
+  font-family: 'Neuton', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--tt-dark);
+  margin-bottom: 45px;
+}
+.about-team-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.about-team-member {
+  text-align: center;
+}
+.about-team-member h5 {
+  font-family: 'Neuton', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--tt-dark);
+  margin: 18px 0 2px;
+}
+.about-team-member .role {
+  color: var(--tt-text-muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.about-team-social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.about-team-social a {
+  color: var(--tt-dark);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.about-team-social a:hover {
+  color: var(--tt-blue);
+}
+
+/* =============================================
+   4) TRUST BAR — 700 Destinations / Best Price / Support
+   ============================================= */
+.about-trust {
+  background: whitesmoke;
+  padding: 50px 0;
+}
+.about-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.about-trust-item img {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+}
+.about-trust-item h5 {
+  font-family: 'Neuton', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--tt-dark);
+  margin-bottom: 6px;
+}
+.about-trust-item p {
+  font-size: 14px;
+  color: var(--tt-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 991.98px) {
+  .about-story-img {
+    margin-bottom: 40px;
+  }
+  .about-hero {
+    padding: 70px 0 90px;
+  }
+  .about-hero h1 {
+    font-size: 2.4rem;
+  }
+  .about-faq-title,
+  .about-team-title {
+    font-size: 1.8rem;
+  }
+  .about-team-member {
+    margin-bottom: 30px;
+  }
+  .about-trust-item {
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-hero {
+    padding: 55px 0 70px;
+  }
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  .about-story {
+    padding: 45px 0 20px;
+  }
+  .about-story h2 {
+    font-size: 1.6rem;
+  }
+  .about-faq-title,
+  .about-team-title {
+    font-size: 1.5rem;
+  }
+  .about-faq-a p {
+    padding-right: 0;
+  }
+  .about-team-photo {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}

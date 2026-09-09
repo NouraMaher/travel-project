@@ -1524,3 +1524,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+/* =============================================
+   ABOUT US PAGE — FAQ toggle behaviour
+   Vanilla JS, no external libraries.
+   Each question toggles independently (matches
+   the reference: several answers can be open
+   at once, closing one does not affect others).
+   ============================================= */
+document.addEventListener('DOMContentLoaded', function () {
+  var faqItems = document.querySelectorAll('.about-faq-item');
+
+  faqItems.forEach(function (item) {
+    var question = item.querySelector('.about-faq-q');
+    var toggleIcon = item.querySelector('.about-faq-toggle');
+
+    question.addEventListener('click', function () {
+      var isOpen = item.classList.toggle('is-open');
+      toggleIcon.innerHTML = isOpen
+          ? '<i class="bi bi-dash-lg"></i>'
+          : '<i class="bi bi-plus-lg"></i>';
+      question.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+});
