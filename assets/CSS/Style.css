@@ -2929,4 +2929,371 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   pointer-events: none;
 }
 
+/* =============================================
+   OUR SERVICE PAGE — styles for pages/our-service.html
+   Self-contained file, kept separate from Style.css.
+   Every rule is prefixed with .os- so it can't collide
+   with any other page's classes. Uses the site's existing
+   variables from :root (--tt-blue, --tt-dark, etc).
+   Shared components reused as-is from Style.css:
+   .hero-badge, .service-card, .btn-blue, .star-rating,
+   .form-control focus states, #mainNavbar, footer styles.
+   ============================================= */
+
+/* --- Page title band --- */
+.os-title-section {
+  background: #f6f7f9;
+  padding: 130px 0 75px;
+  text-align: center;
+}
+.os-title-section h1 {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--tt-dark);
+  margin-bottom: 14px;
+}
+.os-title-section p {
+  color: var(--tt-text-muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* --- Intro / video section --- */
+.os-intro {
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+.os-intro-heading {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 2.75rem;
+  line-height: 1.25;
+  color: var(--tt-dark);
+  margin: 22px 0 24px;
+}
+.os-intro-text {
+  color: var(--tt-text-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+.os-dots {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(#dfe3e8 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  z-index: 0;
+}
+.os-video-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(30, 45, 61, 0.12);
+  z-index: 1;
+}
+.os-video-wrap img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.os-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+  border: none;
+}
+.os-play-btn i {
+  color: var(--tt-blue);
+  font-size: 1.6rem;
+  margin-left: 4px;
+}
+.os-play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* --- Feature cards (extends shared .service-card) --- */
+.os-feature-card {
+  border: 1px solid var(--tt-border);
+  background: #fff;
+  padding: 56px 32px;
+  text-align: center;
+}
+.os-feature-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+.os-feature-card h3 {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--tt-dark);
+  margin-bottom: 14px;
+}
+.os-feature-card p {
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+/* --- Experience / 20 years section --- */
+.os-experience {
+  padding: 50px 0 120px;
+}
+.os-experience-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.os-experience h2 {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--tt-dark);
+  line-height: 1.3;
+  margin-bottom: 22px;
+}
+.os-icon-list-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.os-icon-list-item i {
+  font-size: 1.65rem;
+  color: var(--tt-dark);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.os-icon-list-item h4 {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--tt-dark);
+}
+.os-icon-list-item p {
+  color: var(--tt-text-muted);
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.75;
+}
+
+/* --- Enquiry / contact form section --- */
+.os-enquiry {
+  padding: 110px 0;
+}
+.os-enquiry h2 {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 2.85rem;
+  color: var(--tt-dark);
+  margin-bottom: 60px;
+}
+.os-enquiry-info p {
+  color: var(--tt-text-muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.os-enquiry-info .phone {
+  color: var(--tt-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+.os-form-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(30, 45, 61, 0.08);
+  border: 1px solid var(--tt-border);
+  padding: 40px;
+}
+.os-form-card .form-control {
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-color: var(--tt-border);
+  font-size: 14px;
+}
+.os-terms-label {
+  font-size: 13px;
+  color: var(--tt-text-muted);
+}
+.os-terms-label a {
+  color: var(--tt-blue);
+}
+
+/* --- Testimonials carousel --- */
+.os-testimonials {
+  padding: 110px 0;
+  background: #f7f8fa;
+}
+.os-testimonials h2 {
+  text-align: center;
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: var(--tt-dark);
+  margin-bottom: 60px;
+}
+.os-testimonial-stage {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  overflow: hidden;
+}
+.os-testimonial-stage::before,
+.os-testimonial-stage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  width: 70px;
+  z-index: 3;
+  pointer-events: none;
+}
+.os-testimonial-stage::before {
+  left: 0;
+  background: linear-gradient(to right, #f7f8fa, rgba(247, 248, 250, 0));
+}
+.os-testimonial-stage::after {
+  right: 0;
+  background: linear-gradient(to left, #f7f8fa, rgba(247, 248, 250, 0));
+}
+.os-testimonial-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.os-testimonial-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: left;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.os-testimonial-card.center {
+  flex: 0 0 480px;
+  max-width: 480px;
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+  box-shadow: 0 20px 45px rgba(30, 45, 61, 0.12);
+}
+.os-testimonial-card.side {
+  flex: 0 0 320px;
+  max-width: 320px;
+  opacity: 0.5;
+  transform: scale(0.92);
+  z-index: 1;
+  box-shadow: 0 10px 25px rgba(30, 45, 61, 0.06);
+}
+.os-testimonial-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.os-testimonial-head .star-rating {
+  font-size: 17px;
+}
+.os-testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.os-testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.os-testimonial-name {
+  font-family: 'Neuton', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--tt-dark);
+}
+.os-testimonial-loc {
+  font-size: 14px;
+  color: var(--tt-text-muted);
+}
+.os-testimonial-text {
+  font-size: 15.5px;
+  color: var(--tt-text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+.os-testimonials .carousel-indicators {
+  position: static;
+  margin-top: 24px;
+}
+.os-testimonials .carousel-indicators button {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50%;
+  background-color: #ccd3db !important;
+  border: none !important;
+  opacity: 1;
+  margin: 0 5px;
+  transition: background-color 0.25s;
+}
+.os-testimonials .carousel-indicators button.active {
+  background-color: var(--tt-blue) !important;
+}
+
+/* --- Video modal (Bootstrap modal, page-specific look) --- */
+#osVideoModal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* --- Responsive overrides --- */
+@media (max-width: 991.98px) {
+  .os-title-section { padding: 90px 0 55px; }
+  .os-title-section h1 { font-size: 2.6rem; }
+  .os-intro-heading { font-size: 2.15rem; }
+  .os-experience h2 { font-size: 1.9rem; }
+  .os-enquiry h2 { font-size: 2.2rem; }
+  .os-testimonials h2 { font-size: 2.1rem; }
+  .os-testimonial-row { gap: 20px; }
+  .os-testimonial-card.center { flex-basis: 440px; max-width: 440px; }
+  .os-testimonial-card.side { flex-basis: 250px; max-width: 250px; padding: 28px; }
+}
+@media (max-width: 767.98px) {
+  .os-title-section { padding: 65px 0 42px; }
+  .os-title-section h1 { font-size: 2.1rem; }
+  .os-intro { padding: 65px 0; }
+  .os-intro-heading { font-size: 1.85rem; }
+  .os-feature-card { padding: 38px 24px; }
+  .os-experience { padding: 20px 0 75px; }
+  .os-experience h2 { font-size: 1.7rem; }
+  .os-enquiry { padding: 65px 0; }
+  .os-enquiry h2 { font-size: 1.8rem; margin-bottom: 36px; }
+  .os-form-card { padding: 28px; }
+  .os-testimonials { padding: 65px 0; }
+  .os-testimonials h2 { font-size: 1.7rem; margin-bottom: 32px; }
+  .os-testimonial-stage { padding: 10px 8px 25px; }
+  .os-testimonial-stage::before,
+  .os-testimonial-stage::after { width: 20px; }
+  .os-testimonial-card.center { flex-basis: 100%; max-width: 100%; padding: 28px; }
+  .os-testimonial-card { padding: 24px; }
+}
 

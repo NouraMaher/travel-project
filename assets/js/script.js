@@ -1406,3 +1406,120 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+/* =============================================
+   OUR SERVICE PAGE — behaviour for pages/our-service.html
+   Vanilla JS, self-contained (same independent-closure
+   approach as gallery.js). Does not depend on script.js.
+   ============================================= */
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------------------------------------------
+     TOAST NOTIFICATION HELPER (local copy, same
+     markup/behaviour as the one in script.js so it
+     looks consistent across the site)
+     --------------------------------------------- */
+  function showToast(message, type) {
+    type = type || 'success';
+    var container = document.querySelector('.toast-container-fixed');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container-fixed';
+      document.body.appendChild(container);
+    }
+    var toastId = 'os-toast-' + Date.now();
+    var bgClass = type === 'success' ? 'bg-success' : 'bg-danger';
+    var icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill';
+    var html =
+        '<div id="' + toastId + '" class="toast align-items-center text-white ' + bgClass + ' border-0 mb-2" role="alert" aria-live="assertive">' +
+        '<div class="d-flex">' +
+        '<div class="toast-body"><i class="bi ' + icon + ' me-2"></i>' + message + '</div>' +
+        '<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>' +
+        '</div>' +
+        '</div>';
+    container.insertAdjacentHTML('beforeend', html);
+    var toastEl = document.getElementById(toastId);
+    var bsToast = new bootstrap.Toast(toastEl, { delay: 3500 });
+    bsToast.show();
+    toastEl.addEventListener('hidden.bs.toast', function () {
+      toastEl.remove();
+    });
+  }
+
+  /* ---------------------------------------------
+     EMAIL VALIDATION HELPER (local copy)
+     --------------------------------------------- */
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /* ---------------------------------------------
+     1) ENQUIRY FORM VALIDATION
+     --------------------------------------------- */
+  var serviceEnquiryForm = document.getElementById('serviceEnquiryForm');
+  if (serviceEnquiryForm) {
+    serviceEnquiryForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      var fullName = document.getElementById('osFullName');
+      var email = document.getElementById('osEmail');
+      var subject = document.getElementById('osSubject');
+      var message = document.getElementById('osMessage');
+      var terms = document.getElementById('osAgreeTerms');
+
+      serviceEnquiryForm.querySelectorAll('.form-control, .form-check-input').forEach(function (el) {
+        el.classList.remove('is-invalid');
+      });
+
+      if (fullName && !fullName.value.trim()) {
+        fullName.classList.add('is-invalid');
+        valid = false;
+      }
+      if (email && (!email.value.trim() || !isValidEmail(email.value.trim()))) {
+        email.classList.add('is-invalid');
+        valid = false;
+      }
+      if (subject && !subject.value.trim()) {
+        subject.classList.add('is-invalid');
+        valid = false;
+      }
+      if (message && !message.value.trim()) {
+        message.classList.add('is-invalid');
+        valid = false;
+      }
+      if (terms && !terms.checked) {
+        terms.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if (!valid) {
+        showToast('Please fill in all required fields correctly.', 'error');
+        return;
+      }
+
+      showToast('Message sent successfully! We will get back to you within 24 hours.', 'success');
+      serviceEnquiryForm.reset();
+      serviceEnquiryForm.querySelectorAll('.form-control, .form-check-input').forEach(function (el) {
+        el.classList.remove('is-invalid');
+      });
+    });
+  }
+
+  /* ---------------------------------------------
+     2) VIDEO MODAL — load/unload the YouTube embed
+     so playback stops as soon as the modal closes.
+     --------------------------------------------- */
+  var osVideoModal = document.getElementById('osVideoModal');
+  if (osVideoModal) {
+    var osVideoFrame = document.getElementById('osVideoFrame');
+    var osVideoSrc = 'https://www.youtube.com/embed/L3V7LKYPIUQ?autoplay=1&rel=0';
+    osVideoModal.addEventListener('shown.bs.modal', function () {
+      osVideoFrame.src = osVideoSrc;
+    });
+    osVideoModal.addEventListener('hidden.bs.modal', function () {
+      osVideoFrame.src = '';
+    });
+  }
+
+});
