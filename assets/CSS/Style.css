@@ -2277,7 +2277,7 @@ body:has(.room-header) .hotel-rules h2,
 body:has(.room-header) .reviews h2 { font-size: 32px !important; margin-bottom: 25px !important; }
 body:has(.room-header) .hotel-rules p,
 body:has(.room-header) .hotel-rules li { color: #777 !important; font-size: 14px !important; line-height: 1.8 !important; }
-body:has(.room-header) .gallery-slider { width: 100% !important; overflow: hidden !important; margin-top: 50px !important; }
+body:has(.room-header) .gallery-slider { width: 100% !important; overflow: hidden !important; margin-top: 50px !important; margin-left: 100px !important; }
 body:has(.room-header) .gallery-track { display: flex !important; gap: 15px !important; }
 body:has(.room-header) .gallery-track img {
   width: 250px !important;

@@ -505,6 +505,7 @@ document.addEventListener('DOMContentLoaded', function () {
       roomCartForm.reset();
     });
   }
+  
 
   /* -------------------------------------------
      BLOG SIDEBAR SEARCH
