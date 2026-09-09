@@ -1600,15 +1600,7 @@ a:hover {
     position: static;
   }
 }
-/* mariam css */
 /* Tour Grid Header */
-#mainNavbar{
-  position:sticky !important;
-  top: 0 !important;
-  z-index: 1000;
-   background-color:whitesmoke !important;
-   box-shadow: none !important;
-}
 .page-hero {
     height: 350px !important;
     min-height: 450 !important;
@@ -1632,64 +1624,16 @@ justify-content: center !important;
  padding-top: 50px;
  padding-bottom: 80px;
   background-color: #fff;
-  font-weight: bold;
 }
 
 .tour-grid-section .card {
     height: 100%;
-  font-family: "Poppins" ,sans-serif !important;
-   font-weight: 300;
- 
-  
 }
- .card-title{
-   font-family: "Poppins" ,sans-serif !important;
-   font-weight: 300;
-   font-weight: bold;
-  
- }
- .tour-price-value{
-  color:var(--tt-blue);
- }
 
 .tour-grid-section .card-img-top {
     height: 250px;
     object-fit: cover;
 }
-
- 
-    /* ===== TOUR DETAILS PAGE LAYOUT FIX ===== */
-    .tour-details-layout {
-      display: grid !important;
-      grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr) !important;
-      gap: 3rem !important;
-      align-items: start !important;
-    }
-
-    .tour-details-layout > .tour-details-main,
-    .tour-details-layout > .tour-details-sidebar {
-      width: auto !important;
-      max-width: none !important;
-      flex: none !important;
-    }
-
-    .tour-details-sidebar .booking-card {
-      width: 100% !important;
-      box-sizing: border-box !important;
-    }
-
-    @media (max-width: 991.98px) {
-      .tour-details-layout {
-        grid-template-columns: 1fr !important;
-      }
-    }
- 
-
-
-
-
-
-
 /* =========================
    DATA & PRICING PAGE
 ========================= */
@@ -3345,31 +3289,64 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   .os-testimonial-card { padding: 24px; }
 }
 
+/* =============================================
+   NAVBAR SAFETY FIX
+   Keep Bootstrap dropdowns isolated from page-specific dropdown styles.
+   ============================================= */
 
+#mainNavbar {
+  position: relative;
+  z-index: 1030;
+  background: rgba(255, 255, 255, 0.96) !important;
+}
 
+#mainNavbar .dropdown-toggle {
+  background: transparent;
+  border: 0;
+  min-width: auto;
+  padding: 8px 16px !important;
+  color: var(--tt-text);
+}
 
+#mainNavbar .dropdown-toggle:hover,
+#mainNavbar .dropdown-toggle:focus {
+  color: var(--tt-blue);
+  background: transparent;
+  box-shadow: none;
+}
 
+#mainNavbar .dropdown-menu {
+  min-width: 200px;
+  margin-top: 0;
+  padding: 8px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
 
+#mainNavbar .dropdown-menu .dropdown-item {
+  padding: 8px 20px;
+  font-size: 14px;
+}
 
+#mainNavbar .dropdown-menu .dropdown-item:hover,
+#mainNavbar .dropdown-menu .dropdown-item:focus {
+  background: var(--tt-blue-light);
+  color: var(--tt-blue);
+}
 
+@media (max-width: 991.98px) {
+  #mainNavbar .dropdown-toggle {
+    padding: 8px 0 !important;
+  }
+}
 
+/* =============================================
+   SEARCH PAGES — restored from the 4104-line team CSS
+   Scoped so the working Travora base stays intact.
+   ============================================= */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Room Search Page */
 
 /* Room Search Page */
 
@@ -3388,7 +3365,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     margin: 0;
 }
 
-.filter-box {
+body:has(.search-hero-title) .filter-box {
     border: 1px solid #eee;
     border-radius: 6px;
     padding: 22px;
@@ -3396,7 +3373,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     background: #fff;
 }
 
-.filter-title {
+body:has(.search-hero-title) .filter-title {
     font-size: 15px;
     color: #3b7ddd;
     font-weight: 600;
@@ -3447,7 +3424,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     background: #2f68bd;
 }
 
-.room-card {
+body:has(.search-hero-title) body:has(.search-hero-title) .room-card {
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 20px;
@@ -3456,11 +3433,11 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     transition: box-shadow .2s ease;
 }
 
-.room-card:hover {
+body:has(.search-hero-title) .room-card:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
 }
 
-.room-img-container {
+body:has(.search-hero-title) body:has(.search-hero-title) .room-img-container {
     position: relative;
     width: 100%;
     height: 200px;
@@ -3468,14 +3445,14 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     border-radius: 6px;
 }
 
-.room-img-container img {
+body:has(.search-hero-title) .room-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.badge-custom {
+body:has(.search-hero-title) .badge-custom {
     position: absolute;
     top: 12px;
     left: 12px;
@@ -3486,7 +3463,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     border-radius: 3px;
 }
 
-.room-title {
+body:has(.search-hero-title) .room-title {
     display: block;
     color: #1b1d24;
     font-size: 20px;
@@ -3494,32 +3471,32 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     text-decoration: none;
 }
 
-.room-title:hover {
+body:has(.search-hero-title) .room-title:hover {
     color: #3b7ddd;
 }
 
-.room-desc {
+body:has(.search-hero-title) .room-desc {
     color: #777;
     font-size: 13px;
     line-height: 1.6;
 }
 
-.room-card .text-warning {
+body:has(.search-hero-title) .room-card .text-warning {
     color: #f0a63b !important;
 }
 
-.room-card .text-warning i {
+body:has(.search-hero-title) .room-card .text-warning i {
     font-size: 12px;
 }
 
-.amenities-list {
+body:has(.search-hero-title) .amenities-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 10px;
 }
 
-.amenities-list span {
+body:has(.search-hero-title) .amenities-list span {
     background: #f7f8fa;
     color: #555;
     padding: 6px 10px;
@@ -3527,7 +3504,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     font-size: 12px;
 }
 
-.price-tag {
+body:has(.search-hero-title) .price-tag {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -3535,26 +3512,26 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     gap: 3px;
 }
 
-.price-tag .from {
+body:has(.search-hero-title) .price-tag .from {
     color: #aaa;
     font-size: 13px;
 }
 
-.price-tag .amount {
+body:has(.search-hero-title) .price-tag .amount {
     font-size: 22px;
     font-weight: 700;
 }
 
-.room-card .text-decoration-none:hover {
+body:has(.search-hero-title) .room-card .text-decoration-none:hover {
     color: #3b7ddd !important;
 }
 
 @media (max-width: 991px) {
-    .room-card {
+    body:has(.search-hero-title) .room-card {
         padding: 18px;
     }
 
-    .room-img-container {
+    body:has(.search-hero-title) .room-img-container {
         height: 220px;
     }
 }
@@ -3569,11 +3546,11 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
         font-size: 32px;
     }
 
-    .room-card {
+    body:has(.search-hero-title) .room-card {
         padding: 15px;
     }
 
-    .room-img-container {
+    body:has(.search-hero-title) .room-img-container {
         height: 240px;
     }
 
@@ -3591,11 +3568,11 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
         font-size: 30px;
     }
 
-    .room-img-container {
+    body:has(.search-hero-title) .room-img-container {
         height: 210px;
     }
 
-    .room-card {
+    body:has(.search-hero-title) .room-card {
         padding: 12px;
     }
 
@@ -3630,6 +3607,9 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   color: #1b1d24;
 }
 
+
+
+/* Tour Search Page */
 .search-page {
   max-width: 1300px;
   margin: 0 auto;
@@ -3640,14 +3620,14 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   align-items: start;
 }
 
-.filter-box {
+.search-page .filter-box {
   border: 1px solid #eee;
   border-radius: 6px;
   padding: 22px;
   margin-bottom: 20px;
 }
 
-.filter-box h3 {
+.search-page .filter-box h3 {
   font-size: 15px;
   color: #3b7ddd;
   margin-bottom: 18px;
@@ -3656,7 +3636,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   justify-content: space-between;
 }
 
-.filter-box h3.collapsible {
+.search-page .filter-box h3.collapsible {
   cursor: pointer;
 }
 
@@ -3665,11 +3645,11 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   font-weight: 400;
 }
 
-.field {
+.search-page .field {
   margin-bottom: 16px;
 }
 
-.field label {
+.search-page .field label {
   display: block;
   font-size: 12.5px;
   font-weight: 600;
@@ -3679,7 +3659,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
 
 .field input[type="text"],
 .field input[type="number"],
-.field select {
+.search-page .field select {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -3689,17 +3669,17 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   background: #fff;
 }
 
-.input-icon {
+.search-page .input-icon {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.input-icon input {
+.search-page .input-icon input {
   flex: 1;
 }
 
-.input-icon button {
+.search-page .input-icon button {
   position: absolute;
   right: 8px;
   border: none;
@@ -3708,55 +3688,55 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   color: #999;
 }
 
-.calendar-ico {
+.search-page .calendar-ico {
   position: absolute;
   left: 10px;
   font-size: 13px;
 }
 
-.input-icon .calendar-ico + input {
+.search-page .input-icon .calendar-ico + input {
   padding-left: 30px;
 }
 
-.price-fields {
+.search-page .price-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-.rating-line {
+.search-page .rating-line {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.stars {
+.search-page .stars {
   color: #f0a63b;
   letter-spacing: 2px;
   font-size: 14px;
 }
 
-.or-more {
+.search-page .or-more {
   font-size: 12px;
   color: #888;
 }
 
-.clear-filter {
+.search-page .clear-filter {
   font-size: 12.5px;
   color: #3b7ddd;
 }
 
-.filter-group {
+.search-page .filter-group {
   margin-bottom: 18px;
 }
 
-.filter-group h4 {
+.search-page .filter-group h4 {
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.checkbox {
+.search-page .checkbox {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -3766,16 +3746,16 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   cursor: pointer;
 }
 
-.checkbox input {
+.search-page .checkbox input {
   accent-color: #3b7ddd;
 }
 
-.more-link {
+.search-page .more-link {
   font-size: 12.5px;
   color: #3b7ddd;
 }
 
-.btn-search-submit {
+.search-page .btn-search-submit {
   width: 100%;
   background: #3b7ddd;
   color: #fff;
@@ -3788,21 +3768,21 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   cursor: pointer;
 }
 
-.btn-search-submit:hover {
+.search-page .btn-search-submit:hover {
   background: #2f68bd;
 }
 
-.results-header {
+.search-page .results-header {
   margin-bottom: 16px;
 }
 
-.results-count {
+.search-page .results-count {
   font-size: 14px;
   font-weight: 700;
   color: #1b1d24;
 }
 
-.sort-bar {
+.search-page .sort-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3812,7 +3792,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   margin-bottom: 20px;
 }
 
-.sort-left {
+.search-page .sort-left {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -3820,14 +3800,14 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   color: #555;
 }
 
-.sort-left select {
+.search-page .sort-left select {
   border: none;
   font-size: 13px;
   color: #333;
   cursor: pointer;
 }
 
-.view-toggle button {
+.search-page .view-toggle button {
   border: none;
   background: none;
   font-size: 16px;
@@ -3836,34 +3816,34 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   padding: 4px 6px;
 }
 
-.view-toggle button.active {
+.search-page .view-toggle button.active {
   color: #3b7ddd;
 }
 
-.tour-grid {
+.search-page .tour-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-.tour-card {
+.search-page .tour-card {
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow .2s ease;
 }
 
-.tour-card:hover {
+.search-page .tour-card:hover {
   box-shadow: 0 6px 20px rgba(0,0,0,.08);
 }
 
-.tour-thumb {
+.search-page .tour-thumb {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
 
-.tour-thumb img {
+.search-page .tour-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3886,13 +3866,13 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   background: #e07a3f;
 }
 
-.tour-info {
+.search-page .tour-info {
   padding: 16px 18px 20px;
   display: block;
   color: #333;
 }
 
-.tour-info h3 {
+.search-page .tour-info h3 {
   font-size: 15px;
   font-weight: 700;
   color: #1b1d24;
@@ -3900,44 +3880,44 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   line-height: 1.4;
 }
 
-.tour-rating {
+.search-page .tour-rating {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 10px;
 }
 
-.tour-rating .stars {
+.search-page .tour-rating .stars {
   font-size: 12px;
 }
 
-.tour-rating .review-count {
+.search-page .tour-rating .review-count {
   font-size: 12px;
   color: #999;
 }
 
-.tour-price {
+.search-page .tour-price {
   font-size: 13px;
   color: #888;
 }
 
-.tour-price .old-price {
+.search-page .tour-price .old-price {
   text-decoration: line-through;
   margin-right: 6px;
   color: #aaa;
 }
 
-.tour-price .new-price {
+.search-page .tour-price .new-price {
   color: #3b7ddd;
   font-weight: 700;
   font-size: 16px;
 }
 
-.video-thumb {
+.search-page .video-thumb {
   cursor: pointer;
 }
 
-.play-btn {
+.search-page .play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3955,12 +3935,12 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   transition: background .2s ease, transform .2s ease;
 }
 
-.video-thumb:hover .play-btn {
+.search-page .video-thumb:hover .play-btn {
   background: #3b7ddd;
   transform: translate(-50%, -50%) scale(1.08);
 }
 
-.video-modal {
+.search-page .video-modal {
   display: none;
   position: fixed;
   inset: 0;
@@ -3970,24 +3950,24 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   justify-content: center;
 }
 
-.video-modal.open {
+.search-page .video-modal.open {
   display: flex;
 }
 
-.video-box {
+.search-page .video-box {
   position: relative;
   width: 80%;
   max-width: 1000px;
   aspect-ratio: 16 / 9;
 }
 
-.video-box iframe {
+.search-page .video-box iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.close-video {
+.search-page .close-video {
   position: absolute;
   top: -40px;
   right: 0;
@@ -3996,19 +3976,19 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   cursor: pointer;
 }
 
-.pagination-wrap {
+.search-page .pagination-wrap {
   display: flex;
   justify-content: flex-end;
   margin-top: 30px;
 }
 
-.pagination {
+.search-page .pagination {
   display: flex;
   gap: 6px;
   list-style: none;
 }
 
-.pagination li button {
+.search-page .pagination li button {
   width: 32px;
   height: 32px;
   border: none;
@@ -4020,11 +4000,11 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   transition: all .2s ease;
 }
 
-.pagination li button:hover {
+.search-page .pagination li button:hover {
   background: #dfe2ea;
 }
 
-.pagination li button.active {
+.search-page .pagination li button.active {
   background: #3b7ddd;
   color: #fff;
 }
@@ -4034,7 +4014,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
     grid-template-columns: 1fr;
   }
 
-  .tour-grid {
+  .search-page .tour-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -4045,12 +4025,12 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   }
 }
 
-.dropdown {
+.search-page .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-toggle {
+.search-page .dropdown-toggle {
   background: #fff;
   border: 1px solid #ddd;
   padding: 0px 0px;
@@ -4064,7 +4044,7 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   gap: 10px;
 }
 
-.dropdown-menu {
+.search-page .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -4078,22 +4058,22 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
   display: none;
 }
 
-.dropdown.open .dropdown-menu {
+.search-page .dropdown.open .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu li {
+.search-page .dropdown-menu li {
   padding: 9px 16px;
   font-size: 14px;
   color: #3d3c3a;
   cursor: pointer;
 }
 
-.dropdown-menu li:hover {
+.search-page .dropdown-menu li:hover {
   background: #f5f5f5;
 }
 
-.dropdown-menu li.selected {
+.search-page .dropdown-menu li.selected {
   background: #6f6f6f;
   color: #fff;
 }
@@ -4149,4 +4129,45 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
 
 .tour-search-dropdown:hover .tour-search-menu {
   display: block;
+}
+
+/* =============================================
+   NAVBAR PROTECTION
+   Search-page custom dropdowns must never affect
+   the Bootstrap navbar.
+   ============================================= */
+
+#mainNavbar .dropdown-toggle {
+  background: transparent;
+  border: 0;
+  min-width: auto;
+  padding: 8px 16px !important;
+  color: var(--tt-text);
+}
+
+#mainNavbar .dropdown-toggle:hover,
+#mainNavbar .dropdown-toggle:focus {
+  background: transparent;
+  color: var(--tt-blue);
+  box-shadow: none;
+}
+
+#mainNavbar .dropdown-menu {
+  min-width: 200px;
+  margin-top: 0;
+  padding: 8px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+#mainNavbar .dropdown-menu .dropdown-item {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+#mainNavbar .dropdown-menu .dropdown-item:hover,
+#mainNavbar .dropdown-menu .dropdown-item:focus {
+  background: var(--tt-blue-light);
+  color: var(--tt-blue);
 }
