@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tour - Room Details</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lightbox2 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .navbar-brand { font-weight: 700; letter-spacing: -0.5px; }
+        .nav-link { font-size: 14px; color: #555 !important; }
+        .nav-link:hover { color: #000 !important; }
+
+        
+        .room-gallery-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto 40px auto;
+            padding: 0 15px;
+        }
+        
+        .main-img-wrap {
+            position: relative;
+            height: 420px; 
+        }
+        .main-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .gallery-buttons {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            gap: 8px;
+        }
+        .gallery-buttons .btn {
+            background: #fff;
+            color: #111;
+            font-size: 11px;
+            font-weight: 600;
+            border: none;
+            padding: 5px 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 3px;
+        }
+        
+       
+        .side-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 12px;
+            height: 420px; /* نفس ارتفاع الصورة الكبيرة بالمللي عشان ينتهوا ويبدأوا مع بعض */
+        }
+        .side-thumbnails img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Booking / Enquiry Box */
+        .booking-box {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+        .tab-btn {
+            font-size: 14px;
+            font-weight: 600;
+            color: #777;
+            cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            color: #111;
+            border-bottom-color: #111;
+        }
+
+        /* Amenities Hover Effect */
+        .amenity-card {
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #444;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: #fff;
+        }
+        .amenity-card:hover {
+            background-color: #111;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-color: #111;
+        }
+        .amenity-card:hover i {
+            color: #fff !important;
+        }
+
+        /* More Rooms Section */
+        .more-rooms-section {
+            background: #fafafa;
+            padding: 50px 0;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            margin-top: 60px;
+        }
+        .room-slider-card {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .room-slider-card:hover {
+            transform: translateY(-3px);
+        }
+        .room-slider-card img {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .btn-dark-hover {
+            background-color: #111;
+            color: #fff;
+            transition: background-color 0.2s;
+        }
+        .btn-dark-hover:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-footer {
+            background-color: #111;
+            color: #aaa;
+            font-size: 13px;
+            padding: 60px 0 30px 0;
+        }
+        .dark-footer h5 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+        .dark-footer a { color: #aaa; text-decoration: none; }
+        .sub-footer {
+            background-color: #0a0a0a;
+            color: #666;
+            font-size: 12px;
+            padding: 20px 0;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand text-dark fw-bold" href="index (1).html">Travel <span class="text-primary fw-light">Tour</span></a>
+            <div class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index (1).html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tour List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Room List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index (1).html">Tour Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <select class="form-select form-select-sm border-0 bg-light text-muted" style="width: 75px;">
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+                <a href="#" class="btn btn-primary btn-sm px-3 rounded-1">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Room Header Title & Meta -->
+    <div class="container my-4" style="max-width: 1320px;">
+        <h1 class="fw-bold fs-2 text-dark mb-1">Luxury Suite</h1>
+        <div class="text-warning small mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="text-muted ms-1" style="font-size: 12px;">(1 Review)</span>
+        </div>
+        <div class="d-flex flex-wrap gap-4 text-muted small pb-3 border-bottom">
+            <div><i class="fa-solid fa-bed text-secondary me-1"></i> 1 King Beds</div>
+            <div><i class="fa-solid fa-user text-secondary me-1"></i> Max: 4 Guests</div>
+            <div><i class="fa-solid fa-expand text-secondary me-1"></i> 30 sqm</div>
+            <div><i class="fa-solid fa-city text-secondary me-1"></i> City View</div>
+        </div>
+    </div>
+
+   <!-- Gallery Section (مع خاصية تكبير الصور عند الضغط) -->
+    <div class="room-gallery-section">
+        <!-- Main Large Image -->
+        <div class="main-img-wrap">
+            <a href="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=80" data-lightbox="room-gallery" data-title="Luxury Suite - Main View">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=80" alt="Main Luxury Suite">
+            </a>
+            <div class="gallery-buttons">
+                <button class="btn"><i class="fa-regular fa-image me-1"></i> Gallery</button>
+                <button class="btn"><i class="fa-solid fa-video me-1"></i> Video</button>
+            </div>
+        </div>
+        
+        <!-- 4 Thumbnails -->
+        <div class="side-thumbnails">
+            <a href="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=80" data-lightbox="room-gallery" data-title="Luxury Suite - Detail 1">
+                <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=600&q=80" alt="Thumb 1">
+            </a>
+            <a href="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80" data-lightbox="room-gallery" data-title="Luxury Suite - Detail 2">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Thumb 2">
+            </a>
+            <a href="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80" data-lightbox="room-gallery" data-title="Luxury Suite - Detail 3">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80" alt="Thumb 3">
+            </a>
+            <a href="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80" data-lightbox="room-gallery" data-title="Luxury Suite - Detail 4">
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="Thumb 4">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content & Sidebar -->
+    <div class="container my-5" style="max-width: 1320px;">
+        <div class="row">
+            <!-- Left Info & Description -->
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <span class="text-muted fw-bold small">From $90.00 <span class="fw-normal"><br>per night</span></span>
+                </div>
+                <p class="text-muted lh-lg" style="font-size: 14px;">
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                </p>
+                <p class="text-muted lh-lg" style="font-size: 14px;">
+                    The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn't listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown.
+                </p>
+
+                <!-- Room Amenities -->
+                <h4 class="fw-bold mt-5 mb-3 fs-5">Room Amenities</h4>
+                <div class="row g-2 mb-5">
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-tv text-primary me-2"></i> TV</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-wifi text-primary me-2"></i> Free Wifi</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-lock text-primary me-2"></i> Safe</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-ban text-primary me-2"></i> Nonsmoking</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-snowflake text-primary me-2"></i> Air Conditioning</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-fire text-primary me-2"></i> Heater</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-phone text-primary me-2"></i> Phone</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-wind text-primary me-2"></i> Hair Dryer</div></div>
+                </div>
+
+                <!-- Hotel Amenities -->
+                <h4 class="fw-bold mt-4 mb-3 fs-5">Hotel Amenities</h4>
+                <div class="row g-2 mb-5">
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-dumbbell text-primary me-2"></i> Gym</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-square-parking text-primary me-2"></i> Parking</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-spa text-primary me-2"></i> Spa</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-utensils text-primary me-2"></i> Restaurant</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-bell-concierge text-primary me-2"></i> Room Service</div></div>
+                    <div class="col-4 col-md-4"><div class="amenity-card"><i class="fa-solid fa-person-swimming text-primary me-2"></i> Swimming Pool</div></div>
+                </div>
+
+                <!-- Hotel Rules -->
+                <h4 class="fw-bold mt-4 mb-3 fs-5">Hotel Rules</h4>
+                <ul class="text-muted small ps-3 lh-lg">
+                    <li>Smoking not allowed</li>
+                    <li>Pets not allowed</li>
+                    <li>Swimming pool closed from 8.00pm - 6.00am</li>
+                </ul>
+            </div>
+
+            <!-- Right Sidebar: Booking & Enquiry Tabs -->
+            <div class="col-lg-4">
+                <div class="booking-box">
+                    <div class="d-flex gap-4 mb-4 border-bottom pb-2">
+                        <span id="bookTab" class="tab-btn active" onclick="switchTab('book')">Book Your Room</span>
+                        <span id="enquiryTab" class="tab-btn" onclick="switchTab('enquiry')">Enquiry</span>
+                    </div>
+
+                    <!-- Book Form -->
+                    <div id="bookForm">
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Check In</label>
+                            <input type="date" class="form-control form-control-sm" value="2026-09-01">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Check Out</label>
+                            <input type="date" class="form-control form-control-sm" value="2026-09-02">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Room</label>
+                            <select class="form-select form-select-sm"><option>1</option></select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-muted small">Guests</label>
+                            <input type="text" class="form-control form-control-sm bg-light" value="ADULTS 1  CHILDREN 0" readonly>
+                        </div>
+                        <button class="btn btn-dark-hover w-100 btn-sm py-2 fw-bold rounded-1">BOOK NOW</button>
+                    </div>
+
+                    <!-- Enquiry Form -->
+                    <div id="enquiryForm" style="display: none;">
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Full Name</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Email Address</label>
+                            <input type="email" class="form-control form-control-sm" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Your Enquiry</label>
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Write your message..."></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeCheck">
+                            <label class="form-check-label text-muted small" for="agreeCheck">I agree to the terms & conditions</label>
+                        </div>
+                        <button class="btn btn-dark-hover w-100 btn-sm py-2 fw-bold rounded-1">SUBMIT</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Rooms Section -->
+    <div class="more-rooms-section">
+        <div class="container" style="max-width: 1320px;">
+            <div class="text-center mb-4">
+                <h3 class="fw-bold fs-4">More Rooms</h3>
+            </div>
+            <div class="position-relative">
+                <button onclick="slideRooms(-1)" class="btn btn-dark btn-sm position-absolute start-0 top-50 translate-middle-y z-3 rounded-circle shadow" style="width: 35px; height: 35px;"><i class="fa-solid fa-angle-left"></i></button>
+                
+                <div id="roomsSliderContainer" class="row flex-nowrap overflow-hidden g-3 px-4">
+                    <div class="col-md-4">
+                        <div class="room-slider-card">
+                            <a href="details.room.html"><img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=600&q=80"></a>
+                            <div class="p-3">
+                                <a href="details.room.html" class="text-dark fw-bold text-decoration-none d-block mb-1">Standard Deluxe</a>
+                                <span class="text-muted small">From $75</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="room-slider-card">
+                            <a href="details.room.html"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"></a>
+                            <div class="p-3">
+                                <a href="details.room.html" class="text-dark fw-bold text-decoration-none d-block mb-1">The Penthouse</a>
+                                <span class="text-muted small">From $200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="room-slider-card">
+                            <a href="details.room.html"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80"></a>
+                            <div class="p-3">
+                                <a href="details.room.html" class="text-dark fw-bold text-decoration-none d-block mb-1">Grand Suite Room</a>
+                                <span class="text-muted small">From $150</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="room-slider-card">
+                            <a href="details.room.html"><img src="https://uploads.vusercontent.net/a/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..eIZYw1ojH-rb3EnA.7OgKynxPFXGkbjM75mzdcwxbC4YE0-UlhbXMQKkql-yh89gQTkvXg9j5T-S8ftWLSjXPSxF_-ioOlMY59yiSyDBkcgxhlVO9A041WApotNoAssZyTNZPMuNwe_FW6OuG_1kN2KrPmvsslJxbJRMPM4NoQIQqYw9q-k6SZ0plq-DJR6VA_RoZ04G4m_1kx_zmvnVcKht1BDMoQA.auDjDFoJWCqSVwSUnSTTMg"></a>
+                            <div class="p-3">
+                                <a href="details.room.html" class="text-dark fw-bold text-decoration-none d-block mb-1">Junior Suite Room</a>
+                                <span class="text-muted small">From $79</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="slideRooms(1)" class="btn btn-dark btn-sm position-absolute end-0 top-50 translate-middle-y z-3 rounded-circle shadow" style="width: 35px; height: 35px;"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Footer -->
+    <footer class="dark-footer">
+        <div class="container" style="max-width: 1320px;">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-white">Travel <span class="text-primary fw-light">Tour</span></h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <p class="mb-1 text-muted">T: 1-634-567-34</p>
+                    <p class="mb-3 text-muted">E: contact@goodlayers.com</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Useful Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Travel Blog & Tips</a></li>
+                        <li><a href="#">Working With Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Pay Safely With Us</h5>
+                    <p class="text-muted small mb-3">The payment is encrypted and transmitted securely.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <div class="container text-center">
+            Copyright © 2026 Goodlayers. All Rights Reserved.
+        </div>
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Switch between Book and Enquiry tabs
+        function switchTab(tab) {
+            const bookTab = document.getElementById('bookTab');
+            const enquiryTab = document.getElementById('enquiryTab');
+            const bookForm = document.getElementById('bookForm');
+            const enquiryForm = document.getElementById('enquiryForm');
+
+            if(tab === 'book') {
+                bookTab.classList.add('active');
+                enquiryTab.classList.remove('active');
+                bookForm.style.display = 'block';
+                enquiryForm.style.display = 'none';
+            } else {
+                enquiryTab.classList.add('active');
+                bookTab.classList.remove('active');
+                enquiryForm.style.display = 'block';
+                bookForm.style.display = 'none';
+            }
+        }
+
+        // Slider Navigation for More Rooms
+        function slideRooms(direction) {
+            const container = document.getElementById('roomsSliderContainer');
+            container.scrollBy({ left: direction * 300, behavior: 'smooth' });
+        }
+
+        // Auto slide every 4 seconds
+        setInterval(() => {
+            const container = document.getElementById('roomsSliderContainer');
+            if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+            }
+        }, 4000);
+        <!-- Lightbox2 JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+
+<script>
+    function slideRooms(direction) {
+        const container = document.getElementById('roomsSliderContainer');
+        const card = container.firstElementChild;
+        const cardWidth = card.offsetWidth + 16;
+        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+</script>
+    </script>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.8net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

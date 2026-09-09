@@ -1,262 +1,497 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Tour - Login</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; color: #333; }
-  a { text-decoration: none; }
-
-  /* Header */
-  .site-header { border-bottom: 1px solid #eee; padding: 22px 0; }
-  .header-inner {
-    max-width: 1300px; margin: 0 auto; padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo { font-family: Georgia, serif; font-size: 24px; font-weight: 700; color: #1b1d24; }
-  .logo span { color: #3b7ddd; }
-  .main-nav { display: flex; gap: 34px; }
-  .main-nav a { font-size: 14px; color: #6b6f7b; }
-  .main-nav a:hover { color: #1b1d24; }
-  .header-right { display: flex; align-items: center; gap: 20px; }
-  .currency-select {
-    border: none; background: none; font-size: 13px; font-weight: 600;
-    color: #1b1d24; cursor: pointer;
-  }
-  .btn-login {
-    background: #3b7ddd; color: #fff; padding: 12px 26px;
-    border-radius: 4px; font-size: 13px; font-weight: 600;
-  }
-  .btn-login:hover { background: #2f68bd; }
-
-  /* Hero */
-  .hero {
-    background: #f2f1ee; text-align: center; padding: 80px 20px;
-  }
-  .hero h1 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 52px; font-weight: 700; color: #1b1d24;
-  }
-
-  /* Login form */
-  .login-page { max-width: 950px; margin: 0 auto; padding: 70px 40px; }
-  .form-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 30px;
-  }
-  .form-field label {
-    display: block; font-size: 14px; color: #333; margin-bottom: 12px;
-  }
-  .form-field input {
-    width: 100%; border: 1px solid #ddd; border-radius: 3px;
-    padding: 14px 16px; font-size: 14px;
-  }
-  .form-field input:focus { outline: none; border-color: #3b7ddd; }
-
-  .btn-signin {
-    width: 100%; background: #3b7ddd; color: #fff; border: none;
-    padding: 18px; border-radius: 3px; font-size: 13px; font-weight: 700;
-    letter-spacing: 1px; cursor: pointer; margin-bottom: 18px;
-  }
-  .btn-signin:hover { background: #2f68bd; }
-
-  .forget-password { text-align: right; margin-bottom: 40px; }
-  .forget-password a { color: #3b7ddd; font-size: 13px; }
-
-  .divider { border-top: 1px solid #eee; padding-top: 40px; text-align: center; }
-  .divider h3 {
-    font-family: Georgia, serif; font-size: 17px; font-weight: 700;
-    color: #1b1d24; margin-bottom: 14px; letter-spacing: .5px;
-  }
-  .divider a { color: #3b7ddd; font-size: 13px; letter-spacing: .5px; }
-
-  .form-error {
-    color: #d64545; font-size: 12px; margin-top: 6px; display: none;
-  }
-
-  /* Footer */
-  .site-footer {
-    background: #1b1d24; color: #9a9ba3;
-    padding: 60px 60px 0; margin-top: 40px;
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
-    gap: 30px; max-width: 1200px; margin: 0 auto; padding-bottom: 40px;
-  }
-  .footer-grid h4 { color: #fff; font-size: 17px; font-weight: 600; margin-bottom: 18px; }
-  .footer-logo { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 18px; }
-  .footer-logo span { color: #3b7ddd; }
-  .footer-currency {
-    background: #2a2c34; color: #cfd0d6; border: none;
-    padding: 8px 14px; border-radius: 4px; font-size: 12px; cursor: pointer;
-  }
-  .footer-grid p, .footer-grid a {
-    font-size: 13px; line-height: 1.9; color: #9a9ba3; display: block;
-  }
-  .footer-grid a:hover { color: #3b7ddd; }
-  .footer-grid strong { color: #d8d9de; }
-  .socials { display: flex; gap: 10px; margin-top: 14px; }
-  .socials a {
-    width: 30px; height: 30px; border-radius: 50%; background: #2a2c34;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: #cfd0d6;
-  }
-  .socials a:hover { background: #3b7ddd; color: #fff; }
-  .pay-safe p { font-size: 12.5px; line-height: 1.8; margin-bottom: 14px; }
-  .pay-safe strong { color: #d8d9de; font-weight: 600; }
-  .card-icons { display: flex; gap: 8px; }
-  .card-icons span {
-    width: 34px; height: 22px; background: #2a2c34; border-radius: 3px;
-    font-size: 9px; display: flex; align-items: center; justify-content: center;
-    color: #cfd0d6; font-weight: 600;
-  }
-  .footer-bottom {
-    border-top: 1px solid #2a2c34; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center;
-    max-width: 1200px; margin: 0 auto; font-size: 12.5px;
-  }
-  .footer-bottom nav { display: flex; gap: 20px; }
-  .footer-bottom a { color: #9a9ba3; }
-  .footer-bottom a:hover { color: #3b7ddd; }
-
-  @media (max-width: 900px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 700px) {
-    .main-nav { display: none; }
-    .form-row { grid-template-columns: 1fr; gap: 20px; }
-    .hero h1 { font-size: 36px; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">Travel <span>Tour</span></a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="#">Pages</a>
-        <a href="#">Tour List</a>
-        <a href="#">Room List</a>
-        <a href="#">Tour Search</a>
-        <a href="#">Blog</a>
-      </nav>
-      <div class="header-right">
-        <select class="currency-select">
-          <option>USD</option>
-          <option>EUR</option>
-          <option>EGP</option>
-        </select>
-        <a href="login.html" class="btn-login">Login</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h1>Login</h1>
-  </section>
-
-  <section class="login-page">
-    <form id="loginForm" novalidate>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="username">Username or E-Mail</label>
-          <input type="text" id="username" required>
-          <div class="form-error" id="usernameError">Enter your username or email.</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Tour - Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+      }
+      .site-header {
+        border-bottom: 1px solid #eee;
+        padding: 22px 0;
+      }
+      .header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #1b1d24;
+      }
+      .logo span {
+        color: #3b7ddd;
+      }
+      .main-nav {
+        display: flex;
+        gap: 34px;
+        align-items: center;
+      }
+      .main-nav a {
+        font-size: 14px;
+        color: #6b6f7b;
+      }
+      .main-nav a:hover {
+        color: #1b1d24;
+      }
+      .tour-search-dropdown {
+        position: relative;
+      }
+      .tour-search-link {
+        display: block;
+      }
+      .tour-search-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 170px;
+        background: #fff;
+        border: 1px solid #eee;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 10px 0;
+        display: none;
+        z-index: 1000;
+      }
+      .tour-search-dropdown:hover .tour-search-menu {
+        display: block;
+      }
+      .tour-search-menu a {
+        display: block;
+        padding: 10px 18px;
+        white-space: nowrap;
+        color: #6b6f7b;
+      }
+      .tour-search-menu a:hover {
+        background: #f5f7fa;
+        color: #3b7ddd;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .currency-select {
+        border: none;
+        background: none;
+        font-size: 13px;
+        font-weight: 600;
+        color: #1b1d24;
+        cursor: pointer;
+      }
+      .btn-login {
+        background: #3b7ddd;
+        color: #fff;
+        padding: 12px 26px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .btn-login:hover {
+        background: #2f68bd;
+      }
+      .hero {
+        background: #f2f1ee;
+        text-align: center;
+        padding: 80px 20px;
+      }
+      .hero h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 52px;
+        font-weight: 700;
+        color: #1b1d24;
+      }
+      .login-page {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 70px 40px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+      .form-field label {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 12px;
+      }
+      .form-field input {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+      .form-field input:focus {
+        outline: none;
+        border-color: #3b7ddd;
+      }
+      .btn-signin {
+        width: 100%;
+        background: #3b7ddd;
+        color: #fff;
+        border: none;
+        padding: 18px;
+        border-radius: 3px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        margin-bottom: 18px;
+      }
+      .btn-signin:hover {
+        background: #2f68bd;
+      }
+      .forget-password {
+        text-align: right;
+        margin-bottom: 40px;
+      }
+      .forget-password a {
+        color: #3b7ddd;
+        font-size: 13px;
+      }
+      .divider {
+        border-top: 1px solid #eee;
+        padding-top: 40px;
+        text-align: center;
+      }
+      .divider h3 {
+        font-family: Georgia, serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: #1b1d24;
+        margin-bottom: 14px;
+        letter-spacing: 0.5px;
+      }
+      .divider a {
+        color: #3b7ddd;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+      }
+      .form-error {
+        color: #d64545;
+        font-size: 12px;
+        margin-top: 6px;
+        display: none;
+      }
+      .site-footer {
+        background: #1b1d24;
+        color: #9a9ba3;
+        padding: 60px 60px 0;
+        margin-top: 40px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+      }
+      .footer-grid h4 {
+        color: #fff;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      .footer-logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 18px;
+      }
+      .footer-logo span {
+        color: #3b7ddd;
+      }
+      .footer-currency {
+        background: #2a2c34;
+        color: #cfd0d6;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .footer-grid p,
+      .footer-grid a {
+        font-size: 13px;
+        line-height: 1.9;
+        color: #9a9ba3;
+        display: block;
+      }
+      .footer-grid a:hover {
+        color: #3b7ddd;
+      }
+      .footer-grid strong {
+        color: #d8d9de;
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .socials a {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #2a2c34;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #cfd0d6;
+      }
+      .socials a:hover {
+        background: #3b7ddd;
+        color: #fff;
+      }
+      .pay-safe p {
+        font-size: 12.5px;
+        line-height: 1.8;
+        margin-bottom: 14px;
+      }
+      .pay-safe strong {
+        color: #d8d9de;
+        font-weight: 600;
+      }
+      .card-icons {
+        display: flex;
+        gap: 8px;
+      }
+      .card-icons span {
+        width: 34px;
+        height: 22px;
+        background: #2a2c34;
+        border-radius: 3px;
+        font-size: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #cfd0d6;
+        font-weight: 600;
+      }
+      .footer-bottom {
+        border-top: 1px solid #2a2c34;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        font-size: 12.5px;
+      }
+      .footer-bottom nav {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-bottom a {
+        color: #9a9ba3;
+      }
+      .footer-bottom a:hover {
+        color: #3b7ddd;
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 700px) {
+        .main-nav {
+          display: none;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">Travel <span>Tour</span></a>
+        <nav class="main-nav">
+          <a href="../index.html">Home</a>
+          <div class="tour-search-dropdown">
+            <a href="../pages/destinations.html" class="tour-search-link"
+              >Pages</a
+            >
+            <div class="tour-search-menu">
+              <a href="../pages/destinations.html">Destinations</a>
+              <a href="../pages/about-us.html">About Us</a>
+              <a href="../pages/our-service.html">Our Service</a>
+              <a href="../pages/contact.html">Contact</a>
+              <a href="../pages/gallery.html">Gallery</a>
+              <a href="../pages/price-table.html">Price Table</a>
+            </div>
+          </div>
+          <div class="tour-search-dropdown">
+            <a href="../pages/tour-grid.html" class="tour-search-link"
+              >Tour List</a
+            >
+            <div class="tour-search-menu">
+              <a href="../pages/tour-grid.html">Tour Grid</a>
+              <a href="../pages/data-pricing.html">Date & Pricing</a>
+            </div>
+          </div>
+          <div class="tour-search-dropdown">
+            <a href="../pages/room-grid.html" class="tour-search-link"
+              >Room List</a
+            >
+            <div class="tour-search-menu">
+              <a href="../pages/room-grid.html">Room Grid</a>
+              <a href="../pages/room-cart.html">Room Cart</a>
+            </div>
+          </div>
+          <div class="tour-search-dropdown">
+            <a href="index.html" class="tour-search-link">Tour Search</a>
+            <div class="tour-search-menu">
+              <a href="index.html">Tour Search</a>
+              <a href="room-search.html">Room Search</a>
+            </div>
+          </div>
+          <a href="../pages/blog.html">Blog</a>
+        </nav>
+        <div class="header-right">
+          <select class="currency-select">
+            <option>USD</option>
+            <option>EUR</option>
+            <option>EGP</option>
+          </select>
+          <a href="login.html" class="btn-login">Login</a>
         </div>
-        <div class="form-field">
-          <label for="password">Password</label>
-          <input type="password" id="password" required>
-          <div class="form-error" id="passwordError">Enter your password.</div>
+      </div>
+    </header>
+    <section class="hero"><h1>Login</h1></section>
+    <section class="login-page">
+      <form id="loginForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="username">Username or E-Mail</label>
+            <input type="text" id="username" required />
+            <div class="form-error" id="usernameError">
+              Enter your username or email.
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" required />
+            <div class="form-error" id="passwordError">
+              Enter your password.
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn-signin">SIGN IN!</button>
+        <div class="forget-password"><a href="#">Forget Password?</a></div>
+        <div class="divider">
+          <h3>DO NOT HAVE AN ACCOUNT?</h3>
+          <a href="#">CREATE AN ACCOUNT</a>
+        </div>
+      </form>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Travel <span>Tour</span></div>
+          <select class="footer-currency">
+            <option>USD</option>
+            <option>EUR</option>
+            <option>EGP</option>
+          </select>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><strong>T:</strong> 1-634-567-34</p>
+          <p><strong>E:</strong> contact@traveltourtheme.co</p>
+          <div class="socials">
+            <a href="#">f</a> <a href="#">x</a> <a href="#">p</a>
+            <a href="#">t</a>
+          </div>
+        </div>
+        <div>
+          <h4>Useful Links</h4>
+          <a href="../pages/blog.html">Travel Blog &amp; Tips</a>
+          <a href="../pages/contact.html">Working With Us</a>
+          <a href="../pages/contact.html">Be Our Partner</a>
+        </div>
+        <div class="pay-safe">
+          <h4>Pay Safely With Us</h4>
+          <p>
+            <strong>The payment is encrypted</strong> and transmitted securely
+            with an SSL protocol.
+          </p>
+          <div class="card-icons">
+            <span>PP</span> <span>VISA</span> <span>MC</span> <span>AMEX</span>
+          </div>
         </div>
       </div>
-
-      <button type="submit" class="btn-signin">SIGN IN!</button>
-
-      <div class="forget-password">
-        <a href="#">Forget Password?</a>
+      <div class="footer-bottom">
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="../pages/about-us.html">About</a>
+          <a href="../pages/blog.html">Blog</a>
+          <a href="../pages/contact.html">Contact</a>
+        </nav>
+        <div>Copyright &copy; 2026 GoodLayers. All Rights Reserved.</div>
       </div>
-
-      <div class="divider">
-        <h3>DO NOT HAVE AN ACCOUNT?</h3>
-        <a href="#">CREATE AN ACCOUNT</a>
-      </div>
-    </form>
-  </section>
-
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Travel <span>Tour</span></div>
-        <select class="footer-currency">
-          <option>USD</option>
-          <option>EUR</option>
-          <option>EGP</option>
-        </select>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p><strong>T:</strong> 1-634-567-34</p>
-        <p><strong>E:</strong> contact@traveltourtheme.co</p>
-        <div class="socials">
-          <a href="#">f</a><a href="#">x</a><a href="#">p</a><a href="#">t</a>
-        </div>
-      </div>
-      <div>
-        <h4>Useful Links</h4>
-        <a href="#">Travel Blog &amp; Tips</a>
-        <a href="#">Working With Us</a>
-        <a href="#">Be Our Partner</a>
-      </div>
-      <div class="pay-safe">
-        <h4>Pay Safely With Us</h4>
-        <p><strong>The payment is encrypted</strong> and transmitted securely with an SSL protocol.</p>
-        <div class="card-icons">
-          <span>PP</span><span>VISA</span><span>MC</span><span>AMEX</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <nav>
-        <a href="#">Home</a><a href="#">About</a><a href="#">Blog</a><a href="#">Contact</a>
-      </nav>
-      <div>Copyright &copy; 2026 GoodLayers. All Rights Reserved.</div>
-    </div>
-  </footer>
-
-<script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const username = document.getElementById("username");
-    const password = document.getElementById("password");
-    const usernameError = document.getElementById("usernameError");
-    const passwordError = document.getElementById("passwordError");
-    let valid = true;
-
-    if (username.value.trim() === "") {
-      usernameError.style.display = "block";
-      valid = false;
-    } else {
-      usernameError.style.display = "none";
-    }
-
-    if (password.value.trim() === "") {
-      passwordError.style.display = "block";
-      valid = false;
-    } else {
-      passwordError.style.display = "none";
-    }
-
-    if (valid) {
-      // هنا تحط كود الاتصال بالسيرفر للتحقق من بيانات الدخول
-      alert("تم تسجيل الدخول (تجريبي) - وصل مكان التحقق الفعلي بالسيرفر هنا");
-    }
-  });
-</script>
-
-</body>
+    </footer>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("username");
+          const password = document.getElementById("password");
+          const usernameError = document.getElementById("usernameError");
+          const passwordError = document.getElementById("passwordError");
+          let valid = true;
+          if (username.value.trim() === "") {
+            usernameError.style.display = "block";
+            valid = false;
+          } else {
+            usernameError.style.display = "none";
+          }
+          if (password.value.trim() === "") {
+            passwordError.style.display = "block";
+            valid = false;
+          } else {
+            passwordError.style.display = "none";
+          }
+          if (valid) {
+            alert(
+              "تم تسجيل الدخول (تجريبي) - وصل مكان التحقق الفعلي بالسيرفر هنا",
+            );
+          }
+        });
+    </script>
+  </body>
 </html>
