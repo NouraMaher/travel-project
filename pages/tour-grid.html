@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -18,16 +18,14 @@
     <link rel="stylesheet" href="../assets/css/Style.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm" id="mainNavbar">
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
       <div class="container py-2">
-        <!-- LEFT: Logo -->
-        <a class="navbar-brand" href="../index.html">
+        <a class="navbar-brand fw-bold fs-3 neuton-bold" href="../index.html">
           <img
-            src="../assets/Images/Travel Tour Logo.png"
-            alt="Travel Tour Logo"
-            height="36"
-            class="img-fluid"
+            class="footer-logo"
+            src="../assets/Images/Travora Navbar.png"
+            alt="Travora Logo"
           />
         </a>
         <button
@@ -41,21 +39,16 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- CENTER: Navigation -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto align-items-lg-center">
             <li class="nav-item">
-              <a
-                class="nav-link fw-medium px-3"
-                href="../index.html"
-                id="nav-home"
+              <a class="nav-link fw-medium" href="../index.html" id="nav-home"
                 >Home</a
               >
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-medium px-3"
+                class="nav-link dropdown-toggle fw-medium"
                 href="#"
                 id="nav-pages"
                 role="button"
@@ -63,33 +56,28 @@
                 aria-expanded="false"
                 >Pages</a
               >
-              <ul
-                class="dropdown-menu border-0 shadow rounded-3 py-2"
-                aria-labelledby="nav-pages"
-              >
+              <ul class="dropdown-menu" aria-labelledby="nav-pages">
                 <li>
-                  <a class="dropdown-item py-2" href="destinations.html"
+                  <a class="dropdown-item" href="destinations.html"
                     >Destinations</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="about-us.html"
-                    >About Us</a
-                  >
+                  <a class="dropdown-item" href="about-us.html">About Us</a>
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="our-service.html"
+                  <a class="dropdown-item" href="our-service.html"
                     >Our Service</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="contact.html">Contact</a>
+                  <a class="dropdown-item" href="contact.html">Contact</a>
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="gallery.html">Gallery</a>
+                  <a class="dropdown-item" href="gallery.html">Gallery</a>
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="price-table.html"
+                  <a class="dropdown-item" href="price-table.html"
                     >Price Table</a
                   >
                 </li>
@@ -97,7 +85,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-medium px-3"
+                class="nav-link dropdown-toggle active fw-medium"
                 href="#"
                 id="nav-tours"
                 role="button"
@@ -105,25 +93,20 @@
                 aria-expanded="false"
                 >Tour List</a
               >
-              <ul
-                class="dropdown-menu border-0 shadow rounded-3 py-2"
-                aria-labelledby="nav-tours"
-              >
+              <ul class="dropdown-menu" aria-labelledby="nav-tours">
                 <li>
-                  <a class="dropdown-item py-2" href="tour-grid.html"
-                    >Tour Grid</a
-                  >
+                  <a class="dropdown-item" href="tour-grid.html">Tour Grid</a>
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="data-pricing.html"
-                    >Data &amp; Pricing</a
+                  <a class="dropdown-item" href="data-pricing.html"
+                    >Date &amp; Pricing</a
                   >
                 </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-medium px-3"
+                class="nav-link dropdown-toggle fw-medium"
                 href="#"
                 id="nav-rooms"
                 role="button"
@@ -131,25 +114,18 @@
                 aria-expanded="false"
                 >Room List</a
               >
-              <ul
-                class="dropdown-menu border-0 shadow rounded-3 py-2"
-                aria-labelledby="nav-rooms"
-              >
+              <ul class="dropdown-menu" aria-labelledby="nav-rooms">
                 <li>
-                  <a class="dropdown-item py-2" href="room-grid.html"
-                    >Room Grid</a
-                  >
+                  <a class="dropdown-item" href="room-grid.html">Room Grid</a>
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="room-cart.html"
-                    >Room Cart</a
-                  >
+                  <a class="dropdown-item" href="room-cart.html">Room Cart</a>
                 </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-medium px-3"
+                class="nav-link dropdown-toggle fw-medium"
                 href="#"
                 id="nav-search"
                 role="button"
@@ -157,34 +133,27 @@
                 aria-expanded="false"
                 >Search</a
               >
-              <ul
-                class="dropdown-menu border-0 shadow rounded-3 py-2"
-                aria-labelledby="nav-search"
-              >
+              <ul class="dropdown-menu" aria-labelledby="nav-search">
                 <li>
-                  <a class="dropdown-item py-2" href="tour-search.html"
+                  <a class="dropdown-item" href="tour-search.html"
                     >Tour Search</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item py-2" href="room-search.html"
+                  <a class="dropdown-item" href="room-search.html"
                     >Room Search</a
                   >
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium px-3" href="blog.html" id="nav-blog"
+              <a class="nav-link fw-medium" href="blog.html" id="nav-blog"
                 >Blog</a
               >
             </li>
           </ul>
-
-          <!-- RIGHT: Currency + Login / Register -->
-          <div
-            class="d-flex align-items-center gap-2 mt-3 mt-lg-0 pt-3 pt-lg-0 border-top border-lg-0"
-          >
-            <div class="dropdown currency-dropdown">
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            <div class="dropdown">
               <button
                 class="currency-btn btn bg-transparent border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle"
                 type="button"
@@ -236,358 +205,357 @@
               data-bs-toggle="modal"
               data-bs-target="#authModal"
             >
-              Login / Register
+              Login
             </button>
           </div>
         </div>
       </div>
     </nav>
-
     <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
         <h1>Tour Grid 3 Columns</h1>
       </div>
     </section>
-   <!-- TOUR GRID -->
     <!-- TOUR GRID -->
-<section class="tour-grid-section py-5">
-    <div class="container">
+    <!-- TOUR GRID -->
+    <section class="tour-grid-section py-5">
+      <div class="container">
         <div class="row g-4">
+          <!-- 1 - Africa -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=africa-safari">
+                <img
+                  src="../assets/Images/Tour Africa Amazing African Safari.jpg"
+                  class="card-img-top"
+                  alt="Amazing African Safari"
+                />
+              </a>
 
-            <!-- 1 - Africa -->
-            <div class="col-lg-4 col-md-6">
-          <div class="card shadow-sm rounded overflow-hidden h-100">
-                    <a href="tour-details.html?tour=africa-safari">
-                        <img src="../assets/Images/Tour Africa Amazing African Safari.jpg"
-                             class="card-img-top"
-                             alt="Amazing African Safari">
-                    </a>
+              <div class="card-body">
+                <h5 class="card-title">Africa</h5>
+                <p class="card-text">Amazing African Safari</p>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Africa</h5>
-                        <p class="card-text">Amazing African Safari</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            5 Hours
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="100">$100</strong>
-                        </div>
-                    </div>
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
                 </div>
-            </div>
 
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary "></i>
+                  5 Hours
+                </p>
 
-            <!-- 2 - Dubai -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
-
-                    <a href="tour-details.html?tour=dubai">
-                        <img src="../assets/Images/Tour Dubai All Stunning Places.jpg"
-                             class="card-img-top"
-                             alt="Dubai All Stunning Places">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Dubai</h5>
-                        <p class="card-text">All Stunning Places</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            8 Hours
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="1200">$1,200</strong>
-                        </div>
-                    </div>
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value"  data-price-usd="100">$100</strong>
                 </div>
+              </div>
             </div>
+          </div>
 
+          <!-- 2 - Dubai -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=dubai">
+                <img
+                  src="../assets/Images/Tour Dubai All Stunning Places.jpg"
+                  class="card-img-top"
+                  alt="Dubai All Stunning Places"
+                />
+              </a>
 
-            <!-- 3 - Venice Rome Milan -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
+              <div class="card-body">
+                <h5 class="card-title">Dubai</h5>
+                <p class="card-text">All Stunning Places</p>
 
-                    <a href="tour-details.html?tour=venice-rome-milan">
-                        <img src="../assets/Images/Tour Venice Rome and Milan 9 Days.jpg"
-                             class="card-img-top"
-                             alt="Venice Rome and Milan">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Venice, Rome and Milan</h5>
-                        <p class="card-text">9 Days</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            9 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="3100">$3,100</strong>
-                        </div>
-                    </div>
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
                 </div>
-            </div>
 
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary"></i>
+                  8 Hours
+                </p>
 
-            <!-- 4 - Paris 6 Days -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
-
-                    <a href="tour-details.html?tour=paris-enquiry">
-                        <img src="../assets/Images/Tour Enquiry Form Only Paris 6Days.png"
-                             class="card-img-top"
-                             alt="Paris 6 Days">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Paris</h5>
-                        <p class="card-text">Enquiry form only - 6 Days</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            6 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>Enquiry form only</span>
-                        </div>
-                    </div>
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value"  data-price-usd="1200">$1,200</strong>
                 </div>
+              </div>
             </div>
+          </div>
 
+          <!-- 3 - Venice Rome Milan -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=venice-rome-milan">
+                <img
+                  src="../assets/Images/Tour Venice Rome and Milan 9 Days.jpg"
+                  class="card-img-top"
+                  alt="Venice Rome and Milan"
+                />
+              </a>
 
-            <!-- 5 - Oahu -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
+              <div class="card-body">
+                <h5 class="card-title">Venice, Rome and Milan</h5>
+                <p class="card-text">9 Days</p>
 
-                    <a href="tour-details.html?tour=oahu">
-                        <img src="../assets/Images/Tour 5Day Oahu Tour Honolulu.jpg"
-                             class="card-img-top"
-                             alt="5 Days Oahu Tour Honolulu">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Oahu Tour Honolulu</h5>
-                        <p class="card-text">5 Days</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            5 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="1250">$1,250</strong>
-                        </div>
-                    </div>
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
                 </div>
-            </div>
 
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary "></i>
+                  9 Days
+                </p>
 
-            <!-- 6 - Molokini -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
-
-                    <a href="tour-details.html?tour=molokini">
-                        <img src="../assets/Images/Tour Molokini and Turtle Snorkeling.jpg"
-                             class="card-img-top"
-                             alt="Molokini and Turtle Snorkeling">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Molokini and Turtle Snorkeling</h5>
-                        <p class="card-text">Molokini and Turtle Snorkeling</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            1 Day
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="480">$480</strong>
-                        </div>
-                    </div>
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value"  data-price-usd="3100">$3,100</strong>
                 </div>
+              </div>
             </div>
+          </div>
 
+          <!-- 4 - Paris 6 Days -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=paris-enquiry">
+                <img
+                  src="../assets/Images/Tour Enquiry Form Only Paris 6Days.png"
+                  class="card-img-top"
+                  alt="Paris 6 Days"
+                />
+              </a>
 
-            <!-- 7 - Moscow -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
+              <div class="card-body">
+                <h5 class="card-title">Paris</h5>
+                <p class="card-text">Enquiry form only - 6 Days</p>
 
-                    <a href="tour-details.html?tour=moscow">
-                        <img src="../assets/Images/Tour Two Moscow Tour of 7days.jpg"
-                             class="card-img-top"
-                             alt="Two Moscow Tour of 7 Days">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Moscow Tour</h5>
-                        <p class="card-text">Two Moscow Tour of 7 Days</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            7 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="1800">$1,800</strong>
-                        </div>
-                    </div>
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
                 </div>
-            </div>
 
-
-            <!-- 8 - Paris Eiffel Tower -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
-
-                    <a href="tour-details.html?tour=paris-eiffel">
-                        <img src="../assets/Images/Tour Pais Eiffel Tower Notre Dame Cath.jpg"
-                             class="card-img-top"
-                             alt="Eiffel Tower Notre Dame">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Paris</h5>
-                        <p class="card-text">Eiffel Tower, Notre Dame Cath</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            6 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="2000">$2,000</strong>
-                        </div>
-                    </div>
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary"></i>
+                  6 Days
+                </p>
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong data-price-usd="3100">$3,100</strong>
                 </div>
+              </div>
             </div>
+          </div>
 
+          <!-- 5 - Oahu -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=oahu">
+                <img
+                  src="../assets/Images/Tour 5Day Oahu Tour Honolulu.jpg"
+                  class="card-img-top"
+                  alt="5 Days Oahu Tour Honolulu"
+                />
+              </a>
 
-            <!-- 9 - Austria -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow-sm rounded overflow-hidden h-100">
+              <div class="card-body">
+                <h5 class="card-title">Oahu Tour Honolulu</h5>
+                <p class="card-text">5 Days</p>
 
-                    <a href="tour-details.html?tour=austria">
-                        <img src="../assets/Images/Tour Austria 6Days in Vienna Hallstatt.jpg"
-                             class="card-img-top"
-                             alt="Austria 6 Days in Vienna Hallstatt">
-                    </a>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Austria</h5>
-                        <p class="card-text">6 Days in Vienna, Hallstatt</p>
-
-                        <div class="star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span>(1 Review)</span>
-                        </div>
-
-                        <p class="tour-time">
-                            <i class="bi bi-clock"></i>
-                            6 Days
-                        </p>
-
-                        <div class="tour-price">
-                            <span>From</span>
-                            <strong data-price-usd="2100">$2,100</strong>
-                        </div>
-                    </div>
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
                 </div>
-            </div>
 
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary "></i>
+                  5 Days
+                </p>
+
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value"  data-price-usd="1250">$1,250</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 - Molokini -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=molokini">
+                <img
+                  src="../assets/Images/Tour Molokini and Turtle Snorkeling.jpg"
+                  class="card-img-top"
+                  alt="Molokini and Turtle Snorkeling"
+                />
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Molokini and Turtle Snorkeling</h5>
+                <p class="card-text">Molokini and Turtle Snorkeling</p>
+
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
+                </div>
+
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary "></i>
+                  1 Day
+                </p>
+
+                <div class="tour-price">
+                  <span>From</span>
+                <strong class="tour-price-value" data-price-usd="480">$480</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 - Moscow -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=moscow">
+                <img
+                  src="../assets/Images/Tour Two Moscow Tour of 7days.jpg"
+                  class="card-img-top"
+                  alt="Two Moscow Tour of 7 Days"
+                />
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Moscow Tour</h5>
+                <p class="card-text">Two Moscow Tour of 7 Days</p>
+
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
+                </div>
+
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary"></i>
+                  7 Days
+                </p>
+
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value" data-price-usd="1800">$1,800</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 - Paris Eiffel Tower -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=paris-eiffel">
+                <img
+                  src="../assets/Images/Tour Pais Eiffel Tower Notre Dame Cath.jpg"
+                  class="card-img-top"
+                  alt="Eiffel Tower Notre Dame"
+                />
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Paris</h5>
+                <p class="card-text">Eiffel Tower, Notre Dame Cath</p>
+
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
+                </div>
+
+                <p class="tour-time">
+                  <i class="bi bi-clock  text-primary"></i>
+                  6 Days
+                </p>
+
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong class="tour-price-value" data-price-usd="2000">$2,000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 - Austria -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card shadow-sm rounded overflow-hidden h-100">
+              <a href="tour-details.html?tour=austria">
+                <img
+                  src="../assets/Images/Tour Austria 6Days in Vienna Hallstatt.jpg"
+                  class="card-img-top"
+                  alt="Austria 6 Days in Vienna Hallstatt"
+                />
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Austria</h5>
+                <p class="card-text">6 Days in Vienna, Hallstatt</p>
+
+                <div class="star-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span>(1 Review)</span>
+                </div>
+
+                <p class="tour-time">
+                  <i class="bi bi-clock text-primary"></i>
+                  6 Days
+                </p>
+
+                <div class="tour-price">
+                  <span>From</span>
+                  <strong  class="tour-price-value" data-price-usd="2100">$2,100</strong>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
     <footer id="footer">
       <div class="container">
         <div class="row g-5">
@@ -601,7 +569,10 @@
             <div class="dropdown mt-3">
               <button
                 class="currency-btn btn border rounded-2 fw-semibold d-flex align-items-center gap-1 dropdown-toggle"
-                style="color: var(--tt-footer-text); border-color: rgba(255,255,255,0.15) !important;"
+                style="
+                  color: var(--tt-footer-text);
+                  border-color: rgba(255, 255, 255, 0.15) !important;
+                "
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -609,10 +580,38 @@
                 <i class="bi bi-currency-dollar"></i> USD
               </button>
               <ul class="dropdown-menu border-0 shadow rounded-3 py-2">
-                <li><a class="dropdown-item fw-semibold" href="#" data-currency="USD"><i class="bi bi-currency-dollar me-1"></i>USD</a></li>
-                <li><a class="dropdown-item fw-semibold" href="#" data-currency="EUR"><i class="bi bi-currency-euro me-1"></i>EUR</a></li>
-                <li><a class="dropdown-item fw-semibold" href="#" data-currency="GBP"><i class="bi bi-currency-pound me-1"></i>GBP</a></li>
-                <li><a class="dropdown-item fw-semibold" href="#" data-currency="EGP"><i class="bi bi-currency-exchange me-1"></i>EGP</a></li>
+                <li>
+                  <a
+                    class="dropdown-item fw-semibold"
+                    href="#"
+                    data-currency="USD"
+                    ><i class="bi bi-currency-dollar me-1"></i>USD</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item fw-semibold"
+                    href="#"
+                    data-currency="EUR"
+                    ><i class="bi bi-currency-euro me-1"></i>EUR</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item fw-semibold"
+                    href="#"
+                    data-currency="GBP"
+                    ><i class="bi bi-currency-pound me-1"></i>GBP</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item fw-semibold"
+                    href="#"
+                    data-currency="EGP"
+                    ><i class="bi bi-currency-exchange me-1"></i>EGP</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="footer-social mt-3">
