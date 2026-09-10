@@ -378,6 +378,13 @@ a:hover {
   font-weight: 700;
   font-size: 1.2rem;
 }
+.tour-grid-section .card-title {
+    font-weight: 700;
+}
+
+.tour-grid-section .tour-price strong {
+    color: var(--tt-blue);
+}
 .tour-card .old-price {
   text-decoration: line-through;
   color: #999;
@@ -3295,7 +3302,8 @@ body:has(.room-header) .review p { color: #777 !important; font-size: 14px !impo
    ============================================= */
 
 #mainNavbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1030;
   background: rgba(255, 255, 255, 0.96) !important;
 }
